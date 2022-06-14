@@ -1,0 +1,32 @@
+@use "" as *;
+@use "" as *;
+@use "" as *;
+@use "" as *;
+
+.footer {
+    display: flex;
+    align-self: baseline;
+  @include tablet {
+  }
+
+  @include desktop {
+  }
+}
+.footer__text {
+    display:flex;
+    justify-content: center;
+    color: #5C667E;
+    font-size: 16px;
+  @include tablet {
+  }
+
+  @include desktop {
+  }
+
+  .footer__container {
+    @include tablet {
+    }
+  
+    @include desktop {
+    }
+}

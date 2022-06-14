@@ -9,3 +9,46 @@
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
     font-weight: 600;
 }
+
+//mobile font mixins
+@mixin mobile__page-header{
+    font-family: 'Titillium';
+    font-size: 1.75rem; //28px
+    line-height: 2.25rem; //36px
+}
+
+@mixin mobile__sub-header{
+    font-family: 'Titillium';
+    font-size: 1.25rem; //20px
+    line-height: 1.75rem; //28px
+}
+
+@mixin mobile__labels-links-buttons{
+    font-family: 'Titillium';
+    font-size: 0.81rem; //13px
+    line-height: 1.25rem; //20px
+}
+
+@mixin mobile__table-header{
+    font-family: 'Titillium';
+    font-size: 0.69rem; //11px
+    line-height: 1rem; //16px
+}
+
+@mixin mobile__body-large{
+    font-family: 'Titillium';
+    font-size: 0.94rem; //15px
+    line-height: 1.63rem; //26px
+}
+
+@mixin mobile__body-medium{
+    font-family: 'Titillium';
+    font-size: 0.81rem; //13px
+    line-height: 1.25rem; //20px
+}
+
+@mixin mobile__body-small{
+    font-family: 'Titillium';
+    font-size: 0.69rem; //11px
+    line-height: 1rem; //16px
+}

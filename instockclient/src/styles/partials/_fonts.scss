@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: 'Titillium';
     @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
@@ -13,85 +14,146 @@
 //mobile font mixins
 @mixin mobile__page-header{
     font-family: 'Titillium';
+=======
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap');
+
+
+//mobile font mixins
+@mixin mobile__page-header{
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 1.75rem; //28px
     line-height: 2.25rem; //36px
 }
 
 @mixin mobile__sub-header{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 1.25rem; //20px
     line-height: 1.75rem; //28px
 }
 
 @mixin mobile__labels-links-buttons{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.81rem; //13px
     line-height: 1.25rem; //20px
 }
 
 @mixin mobile__table-header{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.69rem; //11px
     line-height: 1rem; //16px
 }
 
 @mixin mobile__body-large{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.94rem; //15px
     line-height: 1.63rem; //26px
 }
 
 @mixin mobile__body-medium{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.81rem; //13px
     line-height: 1.25rem; //20px
 }
 
 @mixin mobile__body-small{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.69rem; //11px
     line-height: 1rem; //16px
 }
 
 //tablet/desktop font mixins
 @mixin tablet__page-header{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 2rem; //32px
     line-height: 2.5rem; //40px
 }
 
 @mixin tablet__sub-header{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 1.5rem; //24px
     line-height: 2rem; //32px
 }
 
 @mixin tablet__labels-links-buttons{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.88rem; //14px
     line-height: 1.38rem; //22px
 }
 
 @mixin tablet__table-header{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.75rem; //12px
     line-height: 1.13rem; //18px
 }
 
 @mixin tablet__body-large{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 1rem; //16px
     line-height: 1.75rem; //28px
 }
 
 @mixin tablet__body-medium{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.88rem; //14px
     line-height: 1.38rem; //28px
 }
 
 @mixin tablet__body-small{
+<<<<<<< HEAD
     font-family: 'Titillium';
+=======
+    font-family: 'Titillium Web';
+>>>>>>> aa5478967cc79a2dd058783fd95dcfd47eea50ec
     font-size: 0.75rem; //12px
     line-height: 1.13rem; //18px
 }

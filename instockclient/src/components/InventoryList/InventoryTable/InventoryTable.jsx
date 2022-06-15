@@ -1,22 +1,15 @@
-import "./InventoryPage.scss";
-import InventoryItem from "../../components/InventoryItem/InventoryItem";
 import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import React, { Component } from "react";
-import { render } from "@testing-library/react";
-import InventoryList from "../../components/InventoryList/InventoryTable";
+import React, {Component} from "react";
 import "./InventoryList.scss";
 import trash from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_icon from "../../Assets/Icons/edit-24px.svg";
-
-// const listInventory = 'api server?';
-
-
-
+import { NavLink } from "react-router-dom";
+import chevron from "../../Assets/Icons/chevron_right-24px.svg";
+import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryList.scss";
-import { Component } from "react";
-import NavLink from "react-router-dom";
+
 
 export default class InventoryList extends Component {
     state = {
@@ -41,7 +34,7 @@ export default class InventoryList extends Component {
     }
 
   render() {
-    return <div className="inventory">
+    return ( <div className="inventory">
         <div className="inventory__header">
             <h1 className="inventory__header-title">INVENTORY</h1>
             <input className="inventory__header-search" placeholder="Search..." />
@@ -57,16 +50,18 @@ export default class InventoryList extends Component {
 
         </ul>
         
-        <div className="inventory-list">
-          {this.state.inventoryData.map((inventory) => (
+        
+        <div className="inventory-list"> 
+          {this.state.inventoryData.map((inventory) => {
+            return(
             <div className="inventory-list__item">
               <div className="inventory-list__info">
                   <div className="inventory-list__supergrouping">
                     <div className="inventory-list__grouping">
                       <p className="inventory-list__subtitle">INVENTORY</p>
                       <NavLink className="inventory-list__link" to={`/inventory/${inventory.id}`}>
-                        <p className="inventory-list__warelink">{inventory.name}</p>
-                        <img className="inventory-list__chevron" src={chevron} alt="inventory link"/></img>
+                        <p className="inventory-list__inventory-link">{inventory.name}</p>
+                        <img className="inventory-list__chevron" src={chevron} alt="inventory link"/>
                       </NavLink>
                     </div>
 
@@ -85,7 +80,6 @@ export default class InventoryList extends Component {
                   <div className="inventory-list__grouping">
                     <p className="inventory-list__subtitle">QTY</p>
                     <p className="inventory-list__text">{inventory.quantity}</p>
-                  </div>
                 </div>
                 <div className="inventory-list__grouping">
                     <p className="inventory-list__subtitle">WAREHOUSE</p>
@@ -101,7 +95,10 @@ export default class InventoryList extends Component {
 
             </div>
           ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
+  
+

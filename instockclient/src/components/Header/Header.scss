@@ -46,7 +46,11 @@
         color: $white;
         padding: 10px 30px 10px 30px;
         @include mobile__labels-links-buttons;
-        
+
+        @include tablet{
+            @include tablet__labels-links-buttons;
+        }
+
         &:hover{
             text-decoration: underline;
         }

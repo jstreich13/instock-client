@@ -1,0 +1,71 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.warehouses {
+    width: 90%;
+    margin-inline: 5%;
+    box-shadow: 0 0 4px grey;
+
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+
+    &__title {
+        padding-left: 1rem;
+        @include mobile__sub-header;
+    }
+    &__search {
+        width: 80%;
+        margin: auto;
+
+    }
+    &__add-btn {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 1rem;
+    }  
+}
+
+
+.labels {
+
+}
+
+
+.list {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+
+    }
+    &__info {
+
+    }
+    &__grouping {
+
+    }
+    &__subtitle {
+
+    }
+    &__warelink {
+
+    }
+    &__text {
+
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 1rem;
+
+    }
+    &__icons {
+
+
+    }
+}

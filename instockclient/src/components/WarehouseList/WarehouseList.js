@@ -1,55 +1,82 @@
 import "./WarehouseList.scss";
 import { Component } from "react";
-import NavLink from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import axios from 'axios';
+import garbage from "../../Assets/Icons/delete_outline-24px.svg";
+import edit_pen from "../../Assets/Icons/edit-24px.svg";
 class WarehouseList extends Component {
-    state = {
-        warehouseData: []
-    }
+  state = {
+    warehouseData: [],
+  };
 
-    componentDidMount() {
-        //get WarehouseData
-    }
+  componentDidMount() {
+    this.getWarehouseList();
+  }
 
-    getWarehouseList() {
-        axios
-        .get("http://localhost:8080/warehouses/")
-        .then((res) => {
-            this.setState({
-                warehouseData: res.data
-            });
-        })
-        .catch((err) => {
-            console.log("error getting warehouse data")
-        })
-    }
+  getWarehouseList() {
+    axios
+      .get("http://localhost:8080/warehouses/")
+      .then((res) => {
+        this.setState({
+          warehouseData: res.data,
+        });
+      })
+      .catch((err) => {
+        console.log("error getting warehouse data");
+      });
+  }
 
   render() {
-    return <div className="warehouses">
-        <div className="warehouses__header">
-            <h1 className="warehouses__header-title">Warehouses</h1>
-            <input className="warehouses__header-search" placeholder="Search..." />
-            <button className="warehouses__header-addbtn">+ Add New Warehouse</button>
+    return (
+      <div className="warehouses">
+
+        <div className="header">
+          <h1 className="header__title">Warehouses</h1>
+          <input className="header__search" placeholder="Search..." />
+          <button className="header__add-btn">+ Add New Warehouse</button>
         </div>
 
-        <div className="warehouses__list-labels">
-
+        <div className="labels">
         </div>
-        
 
-        <div className="warehouses__list">
-            {this.state.warehouseData.map((warehouse) => (
-                <div className="warehouses__list-item">
-                    <p>WAREHOUSE</p>
-                    <NavLink></NavLink><p>{warehouse.name}</p>
+        <div className="list">
+          {this.state.warehouseData.map((warehouse) => (
+            <div className="list__item">
+              <div className="list__info">
+                <div className="list__grouping">
+                  <p className="list__subtitle">WAREHOUSE</p>
+                  <NavLink to={`/warehouses/${warehouse.id}`}>
+                    <p className="list__warelink">{warehouse.name}</p>
+                  </NavLink>
                 </div>
-            ))}
 
+                <div className="list__grouping">
+                  <p className="list__subtitle">ADDRESS</p>
+                  <p className="list__text">{warehouse.address}</p>
+                </div>
+
+                <div className="list__grouping">
+                  <p className="list__subtitle">CONTACT NAME</p>
+                  <p className="list__text">{warehouse.contact.name}</p>
+                </div>
+
+                <div className="list__grouping">
+                  <p className="list__subtitle">CONTACT INFORMATION</p>
+                  <p className="list__text">{warehouse.contact.phone}</p>
+                  <p className="list__text">{warehouse.contact.email}</p>
+                </div>
+              </div>
+
+              <div className="list__actions">
+                <img className="list__icons" src={garbage} alt="delete icon" />
+                <img className="list__icons" src={edit_pen} alt="edit icon" />
+              </div>
+
+            </div>
+          ))}
         </div>
-
-
-
-    </div>
+      </div>
+    );
   }
 }
 

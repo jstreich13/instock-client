@@ -2,48 +2,64 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.nav{
+.header{
 
     background-color: $graphite;
-    padding: 1rem 0 1rem 0;
+    padding-top: 1rem;
 
     @include tablet {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        padding: 0;
     }
-    
 
     &__image{
         display: flex;
         justify-content: center;
+        max-height: 28px;
     }
 
     &__logo{
-    
+
+        @include tablet{
+            padding-left: 1rem;
+        }
+
+        @include desktop{
+            padding-left: 5rem;
+        }
     }
 
     &__list{
-        color: $white;
         display: flex;
         justify-content: space-evenly;
         list-style-type: none;
         padding: 0;
 
+        @include desktop{
+            padding-right: 5rem;
+        }
     }
 
-
     &__item{
-
+        color: $white;
         padding: 10px 30px 10px 30px;
-
+        @include mobile__labels-links-buttons;
+        
         &:hover{
             text-decoration: underline;
         }
 
-        &--active{
+        &--selected{
             background-color: $instock-Black;
-
             border-radius: 20px;
+            color: $white;
+            text-decoration: none;
         }
+    }
+
+    &__link{
+        text-decoration: none;
     }
 }

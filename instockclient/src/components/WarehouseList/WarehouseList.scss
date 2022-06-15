@@ -4,7 +4,7 @@
 
 .warehouses {
     width: 90%;
-    margin-inline: 5%;
+    margin: 5%;
     box-shadow: 0 0 4px grey;
 
 }
@@ -15,25 +15,40 @@
     border-bottom: 1px solid grey;
 
     &__title {
-        padding-left: 1rem;
-        @include mobile__sub-header;
+        padding-inline: 1rem;
+        @include mobile__page-header;
+        width: 85%;
     }
     &__search {
         width: 80%;
+        height: 2rem;
         margin: auto;
-
+        border-radius: 20px;
+        padding-inline: 1rem;
+        border: 1px solid $cloud;
+        background-image: url('../../Assets/Icons/search-24px.svg');
+        background-repeat: no-repeat;
+        background-position: 95%;     
     }
+
     &__add-btn {
-        width: 80%;
+        @include mobile__labels-links-buttons;
+        width: 90%;
+        height: 2rem;
+        padding-inline: 1rem;
         margin: auto;
-        margin-bottom: 1rem;
+        color: white;
+        margin-block: 1rem;
+        background-color: $instock-Indigo;
+        border: none;
+        border-radius: 20px;        
     }  
 }
 
 
-.labels {
+// .labels {
 
-}
+// }
 
 
 .list {
@@ -41,31 +56,65 @@
     flex-direction: column;
 
     &__item {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid grey;
 
     }
     &__info {
-
-    }
-    &__grouping {
-
-    }
-    &__subtitle {
-
-    }
-    &__warelink {
-
-    }
-    &__text {
-
-    }
-    &__actions {
         display: flex;
         justify-content: space-between;
         padding-inline: 1rem;
 
+    }   
+    &__supergrouping {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 90%;
     }
-    &__icons {
+
+    &__grouping {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 93%; 
+    }
+
+    &__subtitle {
+        @include mobile__body-small;
+        margin-bottom: .25rem;
+        font-weight: 600;
+    }
+
+    &__link {
+        text-decoration: none;
+        display: flex;
+    }
+    &__warelink {
+        @include mobile__body-small;
+        text-decoration: none;
+        color: $instock-Indigo;
+        font-weight: 600;
+        margin-block: 0;
+
+    }
+    &__chevron {
+        width: 1rem;
+    }
+    &__text {
+        @include mobile__body-small;
+        margin-block: 0;        
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+    }
+    // &__icons {
 
 
-    }
+    // }
 }

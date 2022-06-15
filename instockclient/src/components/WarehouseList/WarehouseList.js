@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import garbage from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_pen from "../../Assets/Icons/edit-24px.svg";
+import chevron from "../../Assets/Icons/chevron_right-24px.svg"
 class WarehouseList extends Component {
   state = {
     warehouseData: [],
@@ -43,27 +44,32 @@ class WarehouseList extends Component {
           {this.state.warehouseData.map((warehouse) => (
             <div className="list__item">
               <div className="list__info">
-                <div className="list__grouping">
-                  <p className="list__subtitle">WAREHOUSE</p>
-                  <NavLink to={`/warehouses/${warehouse.id}`}>
-                    <p className="list__warelink">{warehouse.name}</p>
-                  </NavLink>
+                  <div className="list__supergrouping">
+                    <div className="list__grouping">
+                      <p className="list__subtitle">WAREHOUSE</p>
+                      <NavLink className="list__link" to={`/warehouses/${warehouse.id}`}>
+                        <p className="list__warelink">{warehouse.name}</p>
+                        <img className="list__chevron" src={chevron} alt="warehouse link"></img>
+                      </NavLink>
+                    </div>
+
+                  <div className="list__grouping">
+                    <p className="list__subtitle">ADDRESS</p>
+                    <p className="list__text">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
+                  </div>
                 </div>
 
-                <div className="list__grouping">
-                  <p className="list__subtitle">ADDRESS</p>
-                  <p className="list__text">{warehouse.address}</p>
-                </div>
+                <div className="list__supergrouping">
+                  <div className="list__grouping">
+                    <p className="list__subtitle">CONTACT NAME</p>
+                    <p className="list__text">{warehouse.contact.name}</p>
+                  </div>
 
-                <div className="list__grouping">
-                  <p className="list__subtitle">CONTACT NAME</p>
-                  <p className="list__text">{warehouse.contact.name}</p>
-                </div>
-
-                <div className="list__grouping">
-                  <p className="list__subtitle">CONTACT INFORMATION</p>
-                  <p className="list__text">{warehouse.contact.phone}</p>
-                  <p className="list__text">{warehouse.contact.email}</p>
+                  <div className="list__grouping">
+                    <p className="list__subtitle">CONTACT INFORMATION</p>
+                    <p className="list__text">{warehouse.contact.phone}</p>
+                    <p className="list__text">{warehouse.contact.email}</p>
+                  </div>
                 </div>
               </div>
 

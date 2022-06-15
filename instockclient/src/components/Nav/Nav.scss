@@ -6,6 +6,11 @@
 
     background-color: $graphite;
     padding: 1rem 0 1rem 0;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+    }
     
 
     &__image{
@@ -14,7 +19,7 @@
     }
 
     &__logo{
-
+    
     }
 
     &__list{

@@ -6,19 +6,28 @@
     width: 90%;
     margin: 5%;
     box-shadow: 0 0 4px grey;
-
 }
 
 .header{
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid $light-Grey;
+
+    @include tablet {
+        flex-direction: row;
+        padding-inline: 1rem;
+    }
 
     &__title {
         padding-inline: 1rem;
         @include mobile__page-header;
         width: 85%;
+
+        @include tablet {
+            width: 45%;
+        }
     }
+
     &__search {
         width: 80%;
         height: 2rem;
@@ -28,7 +37,12 @@
         border: 1px solid $cloud;
         background-image: url('../../Assets/Icons/search-24px.svg');
         background-repeat: no-repeat;
-        background-position: 95%;     
+        background-position: 95%;  
+        
+        @include tablet {
+            width: 30%;
+            margin-block: 1rem;
+        }
     }
 
     &__add-btn {
@@ -41,15 +55,40 @@
         margin-block: 1rem;
         background-color: $instock-Indigo;
         border: none;
-        border-radius: 20px;        
+        border-radius: 20px;    
+        
+        @include tablet {
+           width: 30%;
+           margin-left: 2rem;
+        }
     }  
 }
 
+.labels {
+    display: none;
 
-// .labels {
+    @include tablet {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        background-color: $light-Grey;
+        margin-block: 0;
+        padding-block: 1rem;
+        @include tablet__body-small;
+        font-weight: 600;
+        color: $slate;
+    }
 
-// }
+    &__item {
+        text-align: center;
+    }
 
+    &__icon {
+        height: 1rem; 
+        transform: translateY(2px);       
+    }
+}
 
 .list {
     display: flex;
@@ -58,20 +97,34 @@
     &__item {
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid $cloud;
 
+        @include tablet {
+            flex-direction: row;
+        }
     }
+
     &__info {
         display: flex;
         justify-content: space-between;
         padding-inline: 1rem;
 
-    }   
+        @include tablet {
+            width: 100%;
+            justify-content: space-around;
+            padding-inline: 1.5rem;
+        }
+    } 
+
     &__supergrouping {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         width: 90%;
+
+        @include tablet {
+            flex-direction: row;
+        }
     }
 
     &__grouping {
@@ -79,18 +132,27 @@
         flex-direction: column;
         justify-content: space-between;
         width: 93%; 
+
+        @include tablet {
+            justify-content: center;
+        }
     }
 
     &__subtitle {
         @include mobile__body-small;
         margin-bottom: .25rem;
         font-weight: 600;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__link {
         text-decoration: none;
         display: flex;
     }
+
     &__warelink {
         @include mobile__body-small;
         text-decoration: none;
@@ -98,13 +160,22 @@
         font-weight: 600;
         margin-block: 0;
 
+        @include tablet {
+            @include tablet__body-small;
+        }
     }
+
     &__chevron {
         width: 1rem;
     }
+
     &__text {
         @include mobile__body-small;
-        margin-block: 0;        
+        margin-block: 0;  
+        
+        @include tablet {
+            @include tablet__body-small;
+        }
     }
 
     &__actions {
@@ -112,9 +183,16 @@
         justify-content: space-between;
         padding: 1rem;
 
+        @include tablet {
+            padding-right: 1.5rem;
+        }
     }
-    // &__icons {
 
+    &__icons {
 
-    // }
+        @include tablet {
+            width: 1rem;
+            padding-left: 1rem;
+        }
+    }
 }

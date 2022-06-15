@@ -4,7 +4,8 @@ import { NavLink } from "react-router-dom";
 import axios from 'axios';
 import garbage from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_pen from "../../Assets/Icons/edit-24px.svg";
-import chevron from "../../Assets/Icons/chevron_right-24px.svg"
+import chevron from "../../Assets/Icons/chevron_right-24px.svg";
+import sort from "../../Assets/Icons/sort-24px.svg";
 class WarehouseList extends Component {
   state = {
     warehouseData: [],
@@ -37,8 +38,13 @@ class WarehouseList extends Component {
           <button className="header__add-btn">+ Add New Warehouse</button>
         </div>
 
-        <div className="labels">
-        </div>
+        <ul className="labels">
+            <li className="labels__item">WAREHOUSE<img className="labels__icon" src={sort} alt="sort icon"></img></li>
+            <li className="labels__item">ADDRESS<img className="labels__icon" src={sort} alt="sort icon"></img></li>
+            <li className="labels__item">CONTACT NAME<img className="labels__icon" src={sort} alt="sort icon"></img></li>
+            <li className="labels__item">CONTACT INFORMATION<img className="labels__icon" src={sort} alt="sort icon"></img></li>
+            <li className="labels__item">ACTIONS</li>
+        </ul>
 
         <div className="list">
           {this.state.warehouseData.map((warehouse) => (
@@ -55,7 +61,7 @@ class WarehouseList extends Component {
 
                   <div className="list__grouping">
                     <p className="list__subtitle">ADDRESS</p>
-                    <p className="list__text">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
+                    <p className="list__text">{warehouse.address}, <br></br>{warehouse.city}, {warehouse.country}</p>
                   </div>
                 </div>
 

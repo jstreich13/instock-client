@@ -1,0 +1,44 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.nav{
+
+    background-color: $graphite;
+    padding: 1rem 0 1rem 0;
+    
+
+    &__image{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__logo{
+
+    }
+
+    &__list{
+        color: $white;
+        display: flex;
+        justify-content: space-evenly;
+        list-style-type: none;
+        padding: 0;
+
+    }
+
+
+    &__item{
+
+        padding: 10px 30px 10px 30px;
+
+        &:hover{
+            text-decoration: underline;
+        }
+
+        &--active{
+            background-color: $instock-Black;
+
+            border-radius: 20px;
+        }
+    }
+}

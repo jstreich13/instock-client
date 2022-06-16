@@ -1,11 +1,11 @@
 import "./App.scss";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import WarehouseList from "./components/WarehouseList/WarehouseList";
+import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 
 function App() {
   return (
     <BrowserRouter>
-    <WarehouseList />
+    <AddInventoryItem />
       <Switch>
         {/* <Route path='/' exact component={}/> FOR WAREHOUSE */}
         {/* <Route path='/inventory' exact component={}/> FOR INVENTORY */}

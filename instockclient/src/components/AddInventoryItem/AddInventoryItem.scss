@@ -1,0 +1,35 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+.add-item {
+    width: 90%;
+    margin: 5%;
+    box-shadow: 0 0 4px grey;
+
+    &__header {
+        border-bottom: 1px solid red;
+        display: flex;
+        padding-left: .5rem;
+    }
+
+    &__icon {
+        transform: translateY(-17px);
+    }
+
+    &__header-title {
+        @include mobile__page-header;
+        padding-left: .5rem;
+
+    }
+
+    &__form-section {
+        border-bottom: 1px solid red;
+        padding: 1rem;
+    }
+
+    &__input-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,23 +1,24 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/colors" as *;
 
-.container__inventory {
-  padding: 0 1rem;
-  @include tablet {
-    padding: 0;
-    margin: 0 auto;
-    max-width: 1020px;
-  }
-}
-
-.inventory {
+.inv {
   @include body-small;
   box-shadow: 0px 2px 5px 0px #13182c1a;
-  &__header {
+
+  &__container {
+    padding: 0 1rem;
+    @include tablet {
+      padding: 0;
+      margin: 0 auto;
+      max-width: 1020px;
+    }
+  }
+
+  &__heading {
     display: none;
     max-width: 1080px;
 
-    &-svg {
+    &-img {
       height: 14px;
       width: 14px;
     }
@@ -57,7 +58,7 @@
     }
   }
 
-  &__left {
+  &__left-side {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -135,7 +136,7 @@
     }
   }
 
-  &__subhead {
+  &__subheading {
     padding-bottom: 0.2rem;
     font-weight: 600;
     color: $slate;

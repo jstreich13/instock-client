@@ -3,8 +3,8 @@
 @use "../../styles/./partials/variables" as *;
 
 .footer {
-    display: flex;
-    align-self: baseline;
+  display: flex;
+  align-self: baseline;
   @include tablet {
   }
 
@@ -12,34 +12,35 @@
   }
 }
 .footer__text {
-    display:flex;
-    justify-content: center;
-    color: $slate
-    font-family: 'Titillium';
-    font-size: 0.69rem; //11px
-    line-height: 1rem; //16px
+  display: flex;
+  justify-content: center;
+  color: $slate;
+  font-family: "Titillium Web";
+  font-size: 0.69rem; //11px
+  line-height: 1rem; //16px
   @include tablet {
-    font-family: 'Titillium';
+    font-family: "Titillium Web";
     font-size: 0.75rem; //12px
     line-height: 1.13rem; //18px
-    display:flex;
+    display: flex;
     justify-content: center;
-    color: $slate
+    color: $slate;
   }
 
   @include desktop {
-    font-family: 'Titillium';
+    font-family: "Titillium Web";
     font-size: 0.75rem; //12px
     line-height: 1.13rem; //18px
-    display:flex;
+    display: flex;
     justify-content: center;
-    color: $slate
+    color: $slate;
   }
 
   .footer__container {
     @include tablet {
     }
-  
+
     @include desktop {
     }
+  }
 }

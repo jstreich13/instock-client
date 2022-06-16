@@ -1,14 +1,12 @@
-import sortIcon from "../../assets/images/icons/sort-24px.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
-import "./InventoryList.scss";
 import trash from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_icon from "../../Assets/Icons/edit-24px.svg";
 import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
-import "./InventoryList.scss";
+import "./InventoryTable.scss";
 
 export default class InventoryList extends Component {
   state = {
@@ -17,6 +15,8 @@ export default class InventoryList extends Component {
 
   componentDidMount() {
     this.getInventoryList();
+
+    //back end task for getting inventory list == for Jeremy
   }
 
   getInventoryList() {

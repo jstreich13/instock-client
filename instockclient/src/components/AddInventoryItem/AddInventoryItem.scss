@@ -2,34 +2,78 @@
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
 
+
+.compheader {
+    border-bottom: 1px solid $cloud;
+    display: flex;
+    padding-left: .5rem;
+
+    &__icon {
+        transform: translateY(25px);
+    }
+
+    &__title {
+        @include mobile__page-header;
+        padding-left: .5rem;
+
+    }
+}
+
 .add-item {
     width: 90%;
     margin: 5%;
     box-shadow: 0 0 4px grey;
 
-    &__header {
-        border-bottom: 1px solid red;
-        display: flex;
-        padding-left: .5rem;
-    }
-
-    &__icon {
-        transform: translateY(-17px);
-    }
-
-    &__header-title {
-        @include mobile__page-header;
-        padding-left: .5rem;
-
-    }
-
     &__form-section {
-        border-bottom: 1px solid red;
+        border-bottom: 1px solid $cloud;
         padding: 1rem;
+    }
+
+    &__form-title {
+        @include mobile__sub-header;
+        margin-top: 0;
     }
 
     &__input-wrap {
         display: flex;
         flex-direction: column;
+    }
+
+    &__label {
+        @include mobile__labels-links-buttons;
+    }
+
+    &__input {
+        width: 87%;
+        height: 2rem;
+        margin: 0;
+        border-radius: 20px;
+        padding-inline: 1rem;
+        border: 1px solid $cloud;
+        background-repeat: no-repeat;
+        background-position: 95%;  
+    }
+
+    &__radio-wrapper {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__btn {
+        @include mobile__labels-links-buttons;
+        height: 2rem;
+        padding-inline: 1rem;
+        width: 45%;
+        margin: 0;
+        color: white;
+        margin-block: 1rem;
+        background-color: $instock-Indigo;
+        border: none;
+        border-radius: 20px;   
     }
 }

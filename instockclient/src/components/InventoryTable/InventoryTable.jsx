@@ -66,9 +66,9 @@ export default class InventoryList extends Component {
             return (
               <div className="inventory-list__item">
                 <div className="inventory-list__info">
-                  <div className="inventory-list__supergrouping">
-                    <div className="inventory-list__grouping">
-                      <p className="inventory-list__subtitle">INVENTORY</p>
+                  <div className="inventory-list__supergroups">
+                    <div className="inventory-list__groups">
+                      <p className="inventory-list__subtitles">INVENTORY</p>
                       <NavLink
                         className="inventory-list__link"
                         to={`/inventory/${inventory.id}`}
@@ -84,29 +84,29 @@ export default class InventoryList extends Component {
                       </NavLink>
                     </div>
 
-                    <div className="inventory-list__grouping">
-                      <p className="inventory-list__subtitle">CATEGORY</p>
-                      <p className="inventory-list__text">
+                    <div className="inventory-list__groups">
+                      <p className="inventory-list__subtitles">CATEGORY</p>
+                      <p className="inventory-list__body">
                         {inventory.category}
                       </p>
                     </div>
                   </div>
 
-                  <div className="inventory-list__supergrouping">
-                    <div className="inventory-list__grouping">
-                      <p className="inventory-list__subtitle">STATUS</p>
-                      <p className="inventory-list__text">{inventory.status}</p>
+                  <div className="inventory-list__supergroups">
+                    <div className="inventory-list__groups">
+                      <p className="inventory-list__subtitles">STATUS</p>
+                      <p className="inventory-list__body">{inventory.status}</p>
                     </div>
 
-                    <div className="inventory-list__grouping">
-                      <p className="inventory-list__subtitle">QTY</p>
-                      <p className="inventory-list__text">
+                    <div className="inventory-list__groups">
+                      <p className="inventory-list__subtitles">QTY</p>
+                      <p className="inventory-list__body">
                         {inventory.quantity}
                       </p>
                     </div>
-                    <div className="inventory-list__grouping">
-                      <p className="inventory-list__subtitle">WAREHOUSE</p>
-                      <p className="inventory-list__text">
+                    <div className="inventory-list__groups">
+                      <p className="inventory-list__subtitles">WAREHOUSE</p>
+                      <p className="inventory-list__body">
                         {inventory.warehouse}
                       </p>
                     </div>

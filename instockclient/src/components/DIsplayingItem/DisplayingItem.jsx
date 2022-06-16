@@ -31,7 +31,7 @@ export default function DisplayingItem({ inventory }) {
           </div>
 
           {inventory.map((item) => {
-            return (
+        bran    return (
               <li className="inv__list" key={uuidv4()}>
                 <div className="inv__left-side">
                   <div className="inv__item">

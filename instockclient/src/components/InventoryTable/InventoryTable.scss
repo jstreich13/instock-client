@@ -1,6 +1,6 @@
-@import "../../styles/partials/variables";
-@import "../../styles/partials/mixins";
-@import "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
 
 .inventory {
   width: 90%;

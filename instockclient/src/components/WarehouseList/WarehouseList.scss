@@ -6,6 +6,12 @@
     width: 90%;
     margin: 5%;
     box-shadow: 0 0 4px grey;
+    background-color: $white;
+}
+
+.warehouses-wrap {
+    background: $white;
+    background: linear-gradient(0deg, $white 90%, $graphite 90%);
 }
 
 .wareheader{

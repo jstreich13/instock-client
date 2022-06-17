@@ -30,6 +30,7 @@ class WarehouseList extends Component {
 
   render() {
     return (
+      <div className="warehouses-wrap">
       <div className="warehouses">
 
         <div className="wareheader">
@@ -87,6 +88,7 @@ class WarehouseList extends Component {
             </div>
           ))}
         </div>
+      </div>
       </div>
     );
   }

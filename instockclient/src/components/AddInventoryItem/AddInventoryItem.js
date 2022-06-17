@@ -31,12 +31,12 @@ class AddInventoryItem extends Component {
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Description</label>
-                    <textarea placeholder="Please enter a brief item description..."></textarea>
+                    <textarea className="add-item__textarea" placeholder="Please enter a brief item description..."></textarea>
                 </div>
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Category</label>
-                    <select>
+                    <select className="add-item__dropdown">
                         <option value="Electronics">Electronics</option>
                         <options value="Gear">Gear</options>
                         <options value="Apparel">Apparel</options>
@@ -45,17 +45,17 @@ class AddInventoryItem extends Component {
                 </div>
             </section>
             <section className="add-item__form-section">
-                <h2 className="add-item__form-title">Item Details</h2>
+                <h2 className="add-item__form-title">Item Availability</h2>
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Status</label>
                     <div className="add-item__radio-wrapper">
                         <div className="add-item__radio-group">
                             <input type="radio" id="instock" name="stock"/>
-                            <label for="instock">In stock</label>
+                            <label className="add-item__radio-label" for="instock">In stock</label>
                         </div>
                         <div className="add-item__radio-group">
                             <input type="radio" id="outstock" name="stock"/>
-                            <label for="outstock">Out of stock</label>
+                            <label className="add-item__radio-label" for="outstock">Out of stock</label>
                         </div>
                     </div>
                 </div>
@@ -67,18 +67,18 @@ class AddInventoryItem extends Component {
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Warehouse</label>
-                    <select>
+                    <select className="add-item__dropdown">
                         <option value="Electronics">Electronics</option>
                         <options value="Gear">Gear</options>
                         <options value="Apparel">Apparel</options>
                         <options value="Health">Health</options>
                     </select>
                 </div>
-            </section>
-            <div className="add-item__buttons">
-                <button className="add-item__btn">Cancel</button>
+                <div className="add-item__buttons">
+                <button className="add-item__btn add-item__btn--cancel">Cancel</button>
                 <button className="add-item__btn">+ Add Item</button>
             </div>
+            </section>
         </form>
     </div>
     )}

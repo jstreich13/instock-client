@@ -14,7 +14,9 @@
 
     &__title {
         @include mobile__page-header;
+        font-size: 1.5rem;
         padding-left: .5rem;
+        line-height: 1.75rem;
 
     }
 }
@@ -24,9 +26,13 @@
     margin: 5%;
     box-shadow: 0 0 4px grey;
 
+    // &__form {
+
+    // }
+
     &__form-section {
         border-bottom: 1px solid $cloud;
-        padding: 1rem;
+        padding: 1rem 1rem 0 1rem;
     }
 
     &__form-title {
@@ -37,43 +43,80 @@
     &__input-wrap {
         display: flex;
         flex-direction: column;
+        margin-bottom: 1rem;
     }
 
     &__label {
         @include mobile__labels-links-buttons;
+        padding-bottom: .2rem;
+        font-weight: 600;
     }
 
     &__input {
         width: 87%;
-        height: 2rem;
+        height: 1.5rem;
         margin: 0;
         border-radius: 20px;
         padding-inline: 1rem;
         border: 1px solid $cloud;
-        background-repeat: no-repeat;
-        background-position: 95%;  
+        @include mobile__body-small;
+    }
+
+    &__textarea {
+        width: 87%;
+        height: 6rem;
+        margin: 0;
+        border-radius: 20px;
+        padding-inline: 1rem;
+        border: 1px solid $cloud;
+        @include mobile__body-small;
+    }
+
+    &__dropdown {
+        width: 100%;
+        height: 1.5rem;
+        margin: 0;
+        border-radius: 20px;
+        padding-inline: 1rem;
+        border: 1px solid $cloud;
+        @include mobile__body-small;
     }
 
     &__radio-wrapper {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
+        @include mobile__body-small;
+    }
+
+    &__radio-label {
+        vertical-align:.15rem;
+        margin-right: 3rem;
+        
     }
 
     &__buttons {
         display: flex;
         justify-content: space-between;
+        padding-inline: 1rem;
     }
 
     &__btn {
-        @include mobile__labels-links-buttons;
+        @include mobile__body-small;
         height: 2rem;
         padding-inline: 1rem;
-        width: 45%;
+        width: 47%;
         margin: 0;
         color: white;
         margin-block: 1rem;
         background-color: $instock-Indigo;
         border: none;
-        border-radius: 20px;   
+        border-radius: 20px; 
+        font-weight: 600;
+
+        &--cancel {
+            background-color: $white;
+            color: $slate;
+            border: 1px solid $cloud;
+        }
     }
 }

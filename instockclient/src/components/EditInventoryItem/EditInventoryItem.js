@@ -7,7 +7,7 @@ import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 class EditInventoryItem extends Component {
     //state holds item info, values for drop downs, and error status of different input fields
     state = {
-        itemId: this.props.inventoryId,
+        itemId: "8f16bd30-bab5-40af-aca2-b63d5fdd1acc",
         name: null,
         description: null,
         category: null, 
@@ -145,7 +145,7 @@ class EditInventoryItem extends Component {
                             <h3 className='edit-inv-item-form__label'>Description</h3>
                             <textarea className={`edit-inv-item-form__big-text${this.state.descError ? ' edit-inv-item__error': ''}`} name='description' onChange={this.handleDesc} type='textarea' defaultValue={this.state.description}></textarea>
                             <h3 className='edit-inv-item-form__label'>Category</h3>
-                            <select className='edit-inv-item-form__dropdown' onChange={this.handleCategory} defaultValue={this.state.category}>
+                            <select className='edit-inv-item-form__dropdown' onChange={this.handleCategory} value={this.state.category}>
                                 {this.state.categoryValues.map((option, index) => (
                                     <option className='edit-inv-item-form__option' key={index} value={option.label}>{option.label}</option>
                                 ))};
@@ -158,7 +158,7 @@ class EditInventoryItem extends Component {
                             <input className='edit-inv-item-form__radio' type='radio' value='Out of Stock' name='status' checked={this.state.status === 'Out of Stock'} onChange={this.handleRadio}/> <label className='edit-inv-item-form__label--radio'>Out of Stock</label>
                             {this.state.status === 'In Stock' ? <div><h3 className='edit-inv-item-form__label'>Quantity</h3><input className={`edit-inv-item-form__number${this.state.quantError ? ' edit-inv-item__error':''}`} onChange={this.handleQuant} type='number' defaultValue={this.state.quantity}></input></div> : <></>}
                             <h3 className='edit-inv-item-form__label'>Warehouse</h3>
-                            <select className='edit-inv-item-form__dropdown' onChange={this.handleWarehouse} defaultValue={this.state.warehouse}>
+                            <select className='edit-inv-item-form__dropdown' onChange={this.handleWarehouse} value={this.state.warehouse}>
                                     {this.state.warehouseList?.map((option, index) => (
                                         <option className='edit-inv-item-form__option' key={index} value={option.label}>{option.label}</option>
                                     ))};

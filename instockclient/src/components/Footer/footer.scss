@@ -1,0 +1,47 @@
+@use "../../styles/./partials/fonts" as *;
+@use "../../styles/./partials/mixins" as *;
+@use "../../styles/./partials/variables" as *;
+
+.footer {
+  display: flex;
+  align-self: baseline;
+  @include tablet {
+  }
+
+  @include desktop {
+  }
+}
+.footer__text {
+  display: flex;
+  justify-content: center;
+  color: $slate;
+  font-family: "Titillium Web";
+  font-size: 0.69rem; //11px
+  line-height: 1rem; //16px
+  @include tablet {
+    font-family: "Titillium Web";
+    font-size: 0.75rem; //12px
+    line-height: 1.13rem; //18px
+    display: flex;
+    justify-content: center;
+    color: $slate;
+  }
+
+  @include desktop {
+    font-family: "Titillium Web";
+    font-size: 0.75rem; //12px
+    line-height: 1.13rem; //18px
+    display: flex;
+    justify-content: center;
+    color: $slate;
+  }
+
+  .footer__container {
+    @include tablet {
+    }
+
+    @include desktop {
+    }
+  }
+}
+}

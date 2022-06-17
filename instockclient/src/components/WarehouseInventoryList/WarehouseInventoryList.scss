@@ -1,0 +1,77 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.list{
+
+    &__container{
+        border-bottom: 1px solid $cloud;
+        padding-bottom: 1rem;
+
+    }
+
+    &__group{
+       display: flex;
+       margin: 0 1rem 0 1rem;
+    }
+
+    &__inventory-container{
+        margin-right: 5rem;
+    }
+
+    &__inventory{
+        @include mobile__body-medium;
+
+        color: $instock-Indigo;
+        align-items: inherit;
+        display: flex;
+    }
+
+    &__inventory-arrow{
+
+    }
+    
+    &__status-container{
+        
+    }
+
+    &__status{
+        @include mobile__body-small;
+
+    }
+
+    &__category-container{
+        margin-right: 7rem;
+    }
+
+    &__category{
+        @include mobile__body-medium;
+        color: $instock-Black;
+    }
+
+    &__quantity-container{
+
+    }
+
+    &__quantity{
+        @include mobile__body-medium;
+        color: $instock-Black;
+    }
+    
+
+    &__title{
+        @include mobile__table-header;
+        color: $slate;
+    }
+
+
+    &__image-container{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 1rem 0 1rem;
+    }
+
+    &__image{
+
+    }
+}

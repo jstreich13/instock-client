@@ -31,10 +31,11 @@ class WarehouseList extends Component {
   render() {
     return (
       <div className="warehouses">
-        <div className="header">
-          <h1 className="header__title">Warehouses</h1>
-          <input className="header__search" placeholder="Search..." />
-          <button className="header__add-btn">+ Add New Warehouse</button>
+
+        <div className="wareheader">
+          <h1 className="wareheader__title">Warehouses</h1>
+          <input className="wareheader__search" placeholder="Search..." />
+          <button className="wareheader__add-btn">+ Add New Warehouse</button>
         </div>
 
         <ul className="labels">

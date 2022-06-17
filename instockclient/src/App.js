@@ -1,5 +1,6 @@
 import "./App.scss";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
@@ -8,7 +9,8 @@ import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
+      <InventoryTable />
       <Switch>
               {/* <Route
                 path="/"
@@ -54,7 +56,9 @@ function App() {
                 render={(routerProps) => <EditInventory {...routerProps} />}
               /> */}
       </Switch>
+
       {/* <Footer/> */}
+
     </BrowserRouter>
   );
 }

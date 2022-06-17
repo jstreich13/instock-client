@@ -1,11 +1,17 @@
-@import "../../styles/partials/variables";
-@import "../../styles/partials/mixins";
-@import "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/fonts" as *;
+
+// .header-wrapper {
+//   background: $white;
+//   background: linear-gradient(0deg, $white 90%, $graphite 90%);
+// }
 
 .inventory {
   width: 90%;
   box-shadow: 0 0 4px grey;
-  margin: 5%;
+  margin: 0% 5% 5% 5%;
+  background: $white;
 
   .header {
     display: flex;
@@ -150,6 +156,8 @@
   &__link {
     text-decoration: none;
     display: flex;
+    flex-direction: row;
+    color: #2e66e5;
   }
 
   &__inventory-link {

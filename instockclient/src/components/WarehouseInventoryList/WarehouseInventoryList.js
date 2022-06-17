@@ -16,7 +16,7 @@ function WarehouseInventoryList() {
             <div className="list__group">
               <div className="list__inventory-container" key={data.id}>
                 <p className="list__title">INVENTORY ITEM</p>
-                <p className="list__inventory">{data.itemName} <img className="list__item-arrow" src={arrow} alt=""/></p>
+                <p className="list__inventory">{data.itemName} <img className="list__inventory-arrow" src={arrow} alt=""/></p>
               </div>
               <div className="list__status-container">
                 <p className="list__title">STATUS</p>

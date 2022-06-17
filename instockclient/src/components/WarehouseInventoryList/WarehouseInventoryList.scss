@@ -4,6 +4,9 @@
 
 .list{
 
+    margin: 1rem 2rem 1rem 2rem;
+    box-shadow: 0 0 4px grey;
+    
     &__container{
         border-bottom: 1px solid $cloud;
         padding-bottom: 1rem;

@@ -2,6 +2,7 @@ import "./AddInventoryItem.scss";
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import back from "../../Assets/Icons/arrow_back-24px.svg"
+import axios from "axios";
 
 class AddInventoryItem extends Component {
     state = {
@@ -9,6 +10,26 @@ class AddInventoryItem extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        axios.post("http://localhost:8080/inventory", {
+            itemName: e.target.itemName.value,
+            description: e.target.description.value,
+            category: e.target.category.value,
+            status: e.target.status.value,
+            warehouseName: e.target.warehouseName.value,
+            quantity: e.target.quantity.value
+        })
+        .then(response => {
+            alert(`${e.target.name.value} has been submitted as a new item`)
+        })
+        .catch(error => {
+            alert("Unable to add new item, please try again.")
+        })
+        // e.target.name.value="",
+        // e.target.description.value="",
+        // e.target.category.value="",
+        // e.target.status.value="",
+        // e.target.warehouseName.value="",
+        // e.target.quantity.value=""
     }
 
   render() {
@@ -26,17 +47,17 @@ class AddInventoryItem extends Component {
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Item Name</label>
-                    <input className="add-item__input" placeholder="Item Name"></input>
+                    <input className="add-item__input" name="itemName" placeholder="Item Name"></input>
                 </div>
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Description</label>
-                    <textarea className="add-item__textarea" placeholder="Please enter a brief item description..."></textarea>
+                    <textarea className="add-item__textarea" name="description" placeholder="Please enter a brief item description..."></textarea>
                 </div>
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Category</label>
-                    <select className="add-item__dropdown">
+                    <select className="add-item__dropdown" name="category">
                         <option value="Electronics">Electronics</option>
                         <options value="Gear">Gear</options>
                         <options value="Apparel">Apparel</options>
@@ -50,11 +71,11 @@ class AddInventoryItem extends Component {
                     <label className="add-item__label">Status</label>
                     <div className="add-item__radio-wrapper">
                         <div className="add-item__radio-group">
-                            <input type="radio" id="instock" name="stock"/>
+                            <input type="radio" id="instock" name="status"/>
                             <label className="add-item__radio-label" for="instock">In stock</label>
                         </div>
                         <div className="add-item__radio-group">
-                            <input type="radio" id="outstock" name="stock"/>
+                            <input type="radio" id="outstock" name="status"/>
                             <label className="add-item__radio-label" for="outstock">Out of stock</label>
                         </div>
                     </div>
@@ -62,12 +83,12 @@ class AddInventoryItem extends Component {
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Quantity</label>
-                    <input  className="add-item__input" ></input>
+                    <input  className="add-item__input" name="quantity"></input>
                 </div>
 
                 <div className="add-item__input-wrap">
                     <label className="add-item__label">Warehouse</label>
-                    <select className="add-item__dropdown">
+                    <select className="add-item__dropdown" name="warehouseName">
                         <option value="Electronics">Electronics</option>
                         <options value="Gear">Gear</options>
                         <options value="Apparel">Apparel</options>
@@ -76,7 +97,7 @@ class AddInventoryItem extends Component {
                 </div>
                 <div className="add-item__buttons">
                 <button className="add-item__btn add-item__btn--cancel">Cancel</button>
-                <button className="add-item__btn">+ Add Item</button>
+                <button className="add-item__btn"onClick={this.handleSubmit}>+ Add Item</button>
             </div>
             </section>
         </form>

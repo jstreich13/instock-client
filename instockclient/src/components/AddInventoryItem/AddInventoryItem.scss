@@ -70,6 +70,7 @@
         padding-inline: 1rem;
         border: 1px solid $cloud;
         @include mobile__body-small;
+        resize: none;
     }
 
     &__dropdown {

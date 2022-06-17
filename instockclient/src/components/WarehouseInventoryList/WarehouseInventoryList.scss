@@ -2,32 +2,124 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+.warehouseInventoryList{
+    box-shadow: 0 0 4px grey;
+    margin: 1rem 2rem 1rem 2rem;
+}
+
+.item{
+    display: none;
+
+    @include tablet{
+        display: flex;
+        list-style: none;
+        background-color: $light-Grey;
+        @include tablet__table-header;
+        color: $slate;
+        padding: 1rem 1rem 1rem 2rem;
+        margin: 0;
+        justify-content: space-between;
+    }
+
+    &__section{
+        display: flex;
+        align-items: center;
+        
+
+        &--tablet{
+        
+            @include desktop{
+                display: none;
+            }
+        }
+
+        &--desktop{
+            display: none;
+
+            @include desktop {
+                display: flex;
+            }
+        }
+    }
+
+    &__icons{
+
+    }
+}
+
 .list{
 
-    margin: 1rem 2rem 1rem 2rem;
-    box-shadow: 0 0 4px grey;
+
+    @include tablet {
+        margin-top: 0;
+        
+    }
     
     &__container{
         border-bottom: 1px solid $cloud;
         padding-bottom: 1rem;
 
+        @include tablet{
+            width: 100%;
+            display: flex;
+            padding-bottom: 0; 
+            justify-content: space-between;
+            
+        }
+
+    }
+
+    &__group-container{
+        display: flex;
+
+        @include tablet {
+            width: 100%;
+            justify-content: space-between;
+            
+        }
     }
 
     &__group{
-       display: flex;
-       margin: 0 1rem 0 1rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 1rem 0 1rem;
+
+       @include tablet{
+        display: flex;
+        margin: 0;
+        flex-direction: row;
+        width: 40%;
+       }
+
+       @include desktop{
+        width: 36%;
+        margin-right: 100px;
+       }
     }
 
     &__inventory-container{
         margin-right: 5rem;
+
+        @include tablet{
+            margin-right: 0;
+            width: 50%
+        }
     }
 
     &__inventory{
         @include mobile__body-medium;
-
+        font-weight: 600;
         color: $instock-Indigo;
         align-items: inherit;
         display: flex;
+        
+        @include tablet{
+            margin-left: 2rem;
+        }
+
+        
     }
 
     &__inventory-arrow{
@@ -39,17 +131,30 @@
     }
 
     &__status{
-        @include mobile__body-small;
+        @include mobile__body-medium;
+        display: flex;
+        align-items: center;
+
+        @include tablet{
+            
+           
+        }
 
     }
 
     &__category-container{
-        margin-right: 7rem;
+     
+        @include tablet{}
+       
     }
 
     &__category{
         @include mobile__body-medium;
         color: $instock-Black;
+
+        @include tablet{
+          
+        }
     }
 
     &__quantity-container{
@@ -59,12 +164,21 @@
     &__quantity{
         @include mobile__body-medium;
         color: $instock-Black;
+
+        @include tablet{
+            margin-right: 110px
+        }
     }
     
 
     &__title{
         @include mobile__table-header;
+        font-weight: 600;
         color: $slate;
+
+        @include tablet{
+            display: none;
+        }
     }
 
 
@@ -72,9 +186,17 @@
         display: flex;
         justify-content: space-between;
         margin: 0 1rem 0 1rem;
+
+        @include tablet {
+            margin: 0;
+        }
+        
     }
 
     &__image{
-
+        @include tablet{
+            margin-right: 1rem;
+            width: 20px;
+        }
     }
 }

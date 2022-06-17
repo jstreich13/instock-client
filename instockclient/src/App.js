@@ -11,7 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <InventoryTable />
+      <EditInventoryItem />
+      {/* <InventoryTable /> */}
       <Switch>
               {/* <Route
                 path="/"

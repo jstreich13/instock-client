@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
+import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 // import Footer from "./components/Footer/footer"
 
@@ -10,7 +11,8 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <InventoryTable />
+      <EditInventoryItem />
+      {/* <InventoryTable /> */}
       <Switch>
               {/* <Route
                 path="/"

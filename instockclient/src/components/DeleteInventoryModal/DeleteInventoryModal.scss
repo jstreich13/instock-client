@@ -1,0 +1,69 @@
+@import "../../styles/partials/fonts";
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+
+*{
+    box-sizing: border-box;
+}
+.modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: $white;
+    padding: 1rem;
+    position: sticky;
+    z-index: 999;
+    top:0;
+    left:0;
+
+  &__closewindow {
+    width: 1.5rem;
+    
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+  }
+
+  &__title {
+    @include mobile__page-header;
+  }
+
+  &__text {
+    @include mobile__body-large;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15rem;
+    
+  }
+  &__cancel {
+    @include mobile__body-small;
+        height: 2rem;
+        padding-inline: 1rem;
+        width: 47%;
+        margin: 0;
+        margin-block: 1rem;
+        border-radius: 20px; 
+        font-weight: 600;
+        background-color: $white;
+            color: $slate;
+            border: 1px solid $cloud;
+  }
+  &__delete {
+    @include mobile__body-small;
+        height: 2rem;
+        padding-inline: 1rem;
+        width: 47%;
+        margin: 0;
+        color: white;
+        margin-block: 1rem;
+        background-color: $instock-Indigo;
+        border: none;
+        border-radius: 20px; 
+        font-weight: 600;  }
+}

@@ -4,13 +4,15 @@ import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
+import DeleteWarehouseModal from "./components/DeleteWarehouseModal/DeleteWarehousehouseModal";
 // import Footer from "./components/Footer/footer"
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <InventoryTable />
+      {/* <DeleteWarehouseModal/> */}
+      {/* <InventoryTable /> */}
       <Switch>
               {/* <Route
                 path="/"

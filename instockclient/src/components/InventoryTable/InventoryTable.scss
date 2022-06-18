@@ -2,13 +2,63 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/fonts" as *;
 
+* {
+  font-family: "Titillium Web";
+}
+
+.inventory-list__inStock {
+  padding: toRem(4) toRem(8);
+  color: green;
+  background: rgba(21, 132, 99, 0.07);
+  border-radius: toRem(20);
+  width: fit-content;
+  font-weight: 700;
+  margin-top: 0px;
+  font-size: 0.8em;
+
+  @include tablet {
+    height: toRem(26);
+  }
+}
+
+.inventory-list__notInStock {
+  height: toRem(24);
+  padding: toRem(4) toRem(8);
+  width: fit-content;
+  font-size: 0.8em;
+  color: red;
+  background-color: rgba(201, 69, 21, 0.07);
+  border-radius: toRem(20);
+  font-weight: 700;
+  margin-top: 0px;
+
+  @include tablet {
+    height: toRem(26);
+  }
+}
+
+.category-spacing {
+  margin-top: 7%;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: center;
+  background: white !important;
+  background: linear-gradient(0deg, #ffffff 85%, #232940 85%);
+  @include tablet {
+    background: white;
+    background: linear-gradient(0deg, #ffffff 75%, #232940 75%);
+  }
+}
+
 .inventory {
   width: 90%;
   box-shadow: 0 0 4px grey;
   margin: 0% 5% 5% 5%;
   background: $white;
 
-  .header {
+  &__header {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $light-Grey;
@@ -18,7 +68,7 @@
       padding-inline: 1rem;
     }
   }
-  &__title {
+  &____header-title {
     padding-inline: 1rem;
     @include mobile__page-header;
     width: 85%;
@@ -28,7 +78,7 @@
     }
   }
 
-  &__search {
+  &____header-search {
     width: 80%;
     height: 2rem;
     padding-inline: 1rem;
@@ -45,7 +95,7 @@
     }
   }
 
-  &__add-btn {
+  &__header-add-btn {
     @include mobile__labels-links-buttons;
     width: 90%;
     height: 2rem;
@@ -62,35 +112,35 @@
       margin-left: 2rem;
     }
   }
-}
 
-.labels {
-  display: none;
+  &__list-labels {
+    display: none;
 
-  @include tablet {
-    justify-content: space-around;
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin-block: 0;
-    background-color: $light-Grey;
-    padding-block: 1rem;
-    @include tablet__body-small;
-    font-weight: 600;
-    color: $slate;
-  }
-
-  &__item {
-    text-align: center;
-  }
-
-  &__icon {
-    height: 1rem;
-    transform: translateY(2px);
+    @include tablet {
+      justify-content: space-around;
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin-block: 0;
+      background-color: $light-Grey;
+      padding-block: 1rem;
+      @include tablet__body-small;
+      font-weight: 600;
+      color: $slate;
+    }
   }
 }
 
-.list {
+.inventorylabels__item {
+  text-align: center;
+}
+
+.labels__icon {
+  height: 1rem;
+  transform: translateY(2px);
+}
+
+.inventory-list {
   flex-direction: column;
   display: flex;
 
@@ -98,6 +148,9 @@
     display: flex;
     border-bottom: 1px solid $cloud;
     flex-direction: column;
+    &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+    }
 
     @include tablet {
       flex-direction: row;
@@ -113,14 +166,16 @@
       justify-content: space-around;
       width: 100%;
       padding-inline: 1.5rem;
+      height: 3em;
     }
   }
 
-  &__supergrouping {
-    justify-content: space-between;
+  &__supergroups {
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
     width: 90%;
+    margin-left: 4em;
 
     @include tablet {
       flex-direction: row;
@@ -132,6 +187,7 @@
     justify-content: space-between;
     flex-direction: column;
     width: 93%;
+    margin-bottom: 1%;
 
     @include tablet {
       justify-content: center;
@@ -183,7 +239,9 @@
   &__actions {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: inherit;
+    padding-left: 4.75em;
+    padding-bottom: 1em;
 
     @include tablet {
       padding-right: 1.5rem;
@@ -192,8 +250,16 @@
 
   &__icons {
     @include tablet {
-      padding-left: 1rem;
-      width: 1rem;
+      margin-right: 1.5em;
     }
+  }
+}
+
+.edit-pen {
+  padding-right: 3em;
+  @include tablet {
+    background-color: white;
+
+    padding: 0;
   }
 }

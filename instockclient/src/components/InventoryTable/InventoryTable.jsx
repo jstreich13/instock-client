@@ -38,7 +38,7 @@ export default class InventoryList extends Component {
       <div className="header-wrapper">
         <div className="inventory">
           <div className="inventory__header">
-            <h1 className="inventory__header-title">INVENTORY</h1>
+            <h1 className="inventory__header-title">Inventory</h1>
             <input
               className="inventory__header-search"
               placeholder="Search..."
@@ -56,11 +56,15 @@ export default class InventoryList extends Component {
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">
-              CONTACT NAME{" "}
+              STATUS{" "}
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">
-              CONTACT INFORMATION{" "}
+              QTY{" "}
+              <img className="labels__icon" src={sort} alt="sort icon"></img>
+            </li>
+            <li className="inventorylabels__item">
+              WAREHOUSE{" "}
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">ACTIONS </li>
@@ -90,21 +94,29 @@ export default class InventoryList extends Component {
                         </NavLink>
                       </div>
                       <div className="inventory-list__groups">
-                        <p className="inventory-list__subtitles">CATEGORY</p>
-                        <p className="inventory-list__body">
-                          {inventory.category}
-                        </p>
+                        <div className="category-spacing">
+                          <p className="inventory-list__subtitles">CATEGORY</p>
+                          <p className="inventory-list__body">
+                            {inventory.category}
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div className="inventory-list__supergroups">
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">STATUS</p>
-                        <p className="inventory-list__body">
-                          {inventory.status}
-                        </p>
+                        {inventory.status === "In Stock" ? (
+                          <p className="inventory-list__inStock">
+                            {" "}
+                            {inventory.status}{" "}
+                          </p>
+                        ) : (
+                          <p className="inventory-list__notInStock">
+                            {inventory.status}
+                          </p>
+                        )}
                       </div>
-
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">QTY</p>
                         <p className="inventory-list__body">
@@ -114,7 +126,7 @@ export default class InventoryList extends Component {
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">WAREHOUSE</p>
                         <p className="inventory-list__body">
-                          {inventory.warehouse}
+                          {inventory.warehouseName}
                         </p>
                       </div>
                     </div>
@@ -127,7 +139,7 @@ export default class InventoryList extends Component {
                       alt="delete icon"
                     />
                     <img
-                      className="inventory-list__icons"
+                      className="inventory-list__icons edit-pen"
                       src={edit_icon}
                       alt="edit icon"
                     />

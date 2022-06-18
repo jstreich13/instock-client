@@ -91,21 +91,26 @@ export default class DisplayingItem extends Component {
                     <p>{category}</p>
                   </div>
                 </div>
+                <div className="inv__right-tablet">
+                  <div className="inv__right">
+                    <div className="inv__status">
+                      <p className="inv__subheading">STATUS</p>
+                      {status === "In Stock" ? (
+                        <p className="inv__inStock"> {status} </p>
+                      ) : (
+                        <p className="inv__notInStock">{status}</p>
+                      )}
+                    </div>
 
-                <div className="inv__right">
-                  <div className="inv__status">
-                    <p className="inv__subheading">STATUS</p>
-                    <p className="inv__notInStock">{status}</p>
+                    <div className="inv__qty">
+                      <p className="inv__subheading">QUANTITY</p>
+                      <p className="inv__quantity-num"> {quantity} </p>
+                    </div>
                   </div>
-
-                  <div className="inv__qty">
-                    <p className="inv__subheading">QTY</p>
-                    <p className="inv__quantity-num"> {quantity} </p>
+                  <div className="inv__description">
+                    <p className="inv__subheading">WAREHOUSE</p>
+                    <p>{warehouseName}</p>
                   </div>
-                </div>
-                <div className="inv__description">
-                  <p className="inv__subheading">WAREHOUSE</p>
-                  <p>{warehouseName}</p>
                 </div>
               </li>
             </ul>

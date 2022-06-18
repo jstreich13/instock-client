@@ -5,6 +5,8 @@
 .footer {
   display: flex;
   align-self: baseline;
+  background-color: $light-Grey;
+
   @include tablet {
   }
 
@@ -18,6 +20,9 @@
   font-family: "Titillium Web";
   font-size: 0.69rem; //11px
   line-height: 1rem; //16px
+  background-color: $light-Grey;
+  margin: 0;
+  padding: 2rem;
   @include tablet {
     font-family: "Titillium Web";
     font-size: 0.75rem; //12px
@@ -43,5 +48,4 @@
     @include desktop {
     }
   }
-}
 }

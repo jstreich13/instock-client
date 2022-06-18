@@ -2,11 +2,18 @@
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
 
+.add-item-wrap {
+    display: flex;
+        justify-content: center;
+        background: $white;
+        background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
+}
 
 .compheader {
     border-bottom: 1px solid $cloud;
     display: flex;
     padding-left: .5rem;
+    background-color: $white;
 
     &__icon {
         transform: translateY(25px);
@@ -23,8 +30,9 @@
 
 .add-item {
     width: 90%;
-    margin: 5%;
+    margin-inline: 5%;
     box-shadow: 0 0 4px grey;
+    background-color: $white;
 
     // &__form {
 

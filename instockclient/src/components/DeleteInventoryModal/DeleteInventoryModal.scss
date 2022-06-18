@@ -10,10 +10,11 @@
     height: 100vh;
     background-color: $white;
     padding: 1rem;
-    position: sticky;
     z-index: 999;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    
+
 
   &__closewindow {
     width: 1.5rem;

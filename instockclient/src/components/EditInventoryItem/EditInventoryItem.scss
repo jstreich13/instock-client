@@ -2,12 +2,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-a {
-    all: unset;
-}
-// * {
-//     border: 1px solid red;
-// }
 
 .edit-inv-item {
     display: flex;
@@ -110,7 +104,7 @@ a {
         margin-bottom: 1rem;
         padding-left: 16px;
         padding-right: 16px;
-        width: fill;
+        width: stretch;
         height: 2.25rem;
 
         &:focus{
@@ -152,7 +146,7 @@ a {
         margin-bottom: 1rem;
         padding-left: 16px;
         padding-right: 16px;
-        width: fill;
+        width: stretch;
         height: 7.5rem;
         resize: none;
 
@@ -169,7 +163,7 @@ a {
     &__dropdown {
         @include mobile__body-small;
         border-radius: 20px;
-        width: fill;
+        width: stretch;
         border: 1px solid $cloud;
         margin-bottom: 1rem;
         padding-left: 1rem;
@@ -203,14 +197,14 @@ a {
 
         @include tablet{
             border: none;
-            width: fill;
+            width: stretch;
             padding-left: 1rem;
         }
     }
 
     &__details{
         @include tablet{
-            width: fill;
+            width: stretch;
             padding-right: 1rem;
             border-right: 1px solid $cloud;
         }

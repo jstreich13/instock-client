@@ -14,7 +14,6 @@ class EditInventoryItem extends Component {
         status: null,
         quantity: null,
         warehouse: null,
-        prevLink: null,
         warehouseList: null,
         categoryValues: [
             {
@@ -167,7 +166,7 @@ class EditInventoryItem extends Component {
                     </form>
                 </div>
                 <div className='edit-inv-item-form__buttons'>
-                        <button className='edit-inv-item-form__cancel'>Cancel</button>
+                        <button onClick={() => useHistory(-1)} className='edit-inv-item-form__cancel'>Cancel</button>
                         <button type='submit' className='edit-inv-item-form__save' form='editInvForm'>Save</button>
                 </div>
             </div>

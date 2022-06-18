@@ -8,16 +8,19 @@
     box-shadow: 0 0 4px grey;
 }
 
-// .warehouses_wrap {
-//     background: $white;
-//     background: linear-gradient(0deg, $white 90%, $graphite 90%);
+.warehouses-wrap {
+    display: flex;
+        justify-content: center;
+        background: $white;
+        background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
 
-// }
+}
 
 .wareheader{
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $light-Grey;
+    background-color: $white;
 
     @include tablet {
         flex-direction: row;
@@ -99,6 +102,7 @@
 .list {
     display: flex;
     flex-direction: column;
+    background-color: $white;
 
     &__item {
         display: flex;

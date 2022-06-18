@@ -2,9 +2,17 @@
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
 
+<<<<<<< HEAD
 .add-wrap {
     background: $white;
     background: linear-gradient(0deg, $white 90%, $graphite 90%);
+=======
+.add-item-wrap {
+    display: flex;
+        justify-content: center;
+        background: $white;
+        background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
+>>>>>>> develop
 }
 
 .compheader {
@@ -28,8 +36,9 @@
 
 .add-item {
     width: 90%;
-    margin: 5%;
+    margin-inline: 5%;
     box-shadow: 0 0 4px grey;
+    background-color: $white;
 
     // &__form {
 

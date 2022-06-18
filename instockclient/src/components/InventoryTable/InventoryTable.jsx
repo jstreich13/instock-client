@@ -21,7 +21,7 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventories/")
+      .get("http://localhost:8080/inventory/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -77,7 +77,7 @@ export default class InventoryList extends Component {
                         <p className="inventory-list__subtitles">INVENTORY</p>
                         <NavLink
                           className="inventory-list__link"
-                          to={`/inventories/${inventory.id}`}
+                          to={`/inventory/${inventory.id}`}
                         >
                           <p className="inventory-list__inventory-link">
                             {inventory.itemName}

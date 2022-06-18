@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600&display=swap");
+
+//mobile font mixins
+@mixin mobile__page-header {
+  font-family: "Titillium Web";
+  font-size: 1.75rem; //28px
+  line-height: 2.25rem; //36px
+}
+
+@mixin mobile__sub-header {
+  font-family: "Titillium Web";
+  font-size: 1.25rem; //20px
+  line-height: 1.75rem; //28px
+}
+
+@mixin mobile__labels-links-buttons {
+  font-family: "Titillium Web";
+  font-size: 0.81rem; //13px
+  line-height: 1.25rem; //20px
+}
+
+@mixin mobile__table-header {
+  font-family: "Titillium Web";
+  font-size: 0.69rem; //11px
+  line-height: 1rem; //16px
+}
+
+@mixin mobile__body-large {
+  font-family: "Titillium Web";
+  font-size: 0.94rem; //15px
+  line-height: 1.63rem; //26px
+}
+
+@mixin mobile__body-medium {
+  font-family: "Titillium Web";
+  font-size: 0.81rem; //13px
+  line-height: 1.25rem; //20px
+}
+
+@mixin mobile__body-small {
+  font-family: "Titillium Web";
+  font-size: 0.69rem; //11px
+  line-height: 1rem; //16px
+}
+
+//tablet/desktop font mixins
+@mixin tablet__page-header {
+  font-family: "Titillium Web";
+  font-size: 2rem; //32px
+  line-height: 2.5rem; //40px
+}
+
+@mixin tablet__sub-header {
+  font-family: "Titillium Web";
+  font-size: 1.5rem; //24px
+  line-height: 2rem; //32px
+}
+
+@mixin tablet__labels-links-buttons {
+  font-family: "Titillium Web";
+  font-size: 0.88rem; //14px
+  line-height: 1.38rem; //22px
+}
+
+@mixin tablet__table-header {
+  font-family: "Titillium Web";
+  font-size: 0.75rem; //12px
+  line-height: 1.13rem; //18px
+}
+
+@mixin tablet__body-large {
+  font-family: "Titillium Web";
+  font-size: 1rem; //16px
+  line-height: 1.75rem; //28px
+}
+
+@mixin tablet__body-medium {
+  font-family: "Titillium Web";
+  font-size: 0.88rem; //14px
+  line-height: 1.38rem; //28px
+}
+
+@mixin tablet__body-small {
+  font-family: "Titillium Web";
+  font-size: 0.75rem; //12px
+  line-height: 1.13rem; //18px
+}

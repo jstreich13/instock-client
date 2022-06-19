@@ -77,7 +77,7 @@ class WarehouseList extends Component {
 
           <div className="list">
             {this.state.warehouseData.map((warehouse) => (
-              <div className="list__item">
+              <div className="list__item" key={warehouse.id}>
                 <div className="list__info">
                   <div className="list__supergrouping">
                     <div className="list__grouping">

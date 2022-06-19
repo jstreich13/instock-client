@@ -28,11 +28,12 @@ class AddInventoryItem extends Component {
     ],
     status: "",
     warehouseName: "",
+    warehouseData: [],
     quantity: "",
     nameError: false,
     descriptionError: false,
     statusError: false,
-    quantityError: false,
+    quantityError: false
   };
 
   handleSubmit = (e) => {
@@ -46,13 +47,13 @@ class AddInventoryItem extends Component {
 
     if (itemName && description && status && quantity) {
       axios
-        .post("http://localhost:8080/inventory", {
-          warehouseName,
-          itemName,
-          description,
-          category,
-          status,
-          quantity,
+        .post("http://localhost:8080/inventories", {
+          warehouseName: warehouseName,
+          itemName: itemName,
+          description: description,
+          category: category,
+          status: status,
+          quantity: quantity,
         })
         .then((res) => {
           alert(`${e.target.name.value} has been submitted as a new item`);
@@ -71,48 +72,50 @@ class AddInventoryItem extends Component {
 
   changeHandler = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
-      
+      [e.target.name]: e.target.value      
     })
   }
 
-  handleName = (e) => {
-    this.setState({ itemName: e.target.value });
-  };
+  warehouseHandler = (e) => {
+    const option = JSON.parse(e.target.value)
+    this.setState({
+      warehouseName: option.warehouseName      
+    })
+  }
 
-  handleDescr = (e) => {
-    this.setState({ description: e.target.value });
-  };
+  getWarehouseData() {
+    const warehouseList = 
+      axios
+        .get("http://localhost:8080/warehouses")
+        .then((res) => {
+          this.setState({
+              warehouseData: res.data,
+          });
+        })
+        .catch((res) => console.log(res));
+  }
 
-  handleCat = (e) => {
-    this.setState({ category: e.target.value });
-  };
-
-  handleStatus = (e) => {
-    this.setState({ status: e.target.value });
-  };
-
-  handleWare = (e) => {
-    this.setState({ warehouseName: e.target.value });
-  };
-
-  handleQuan = (e) => {
-    this.setState({ quantity: e.target.value });
-  };
+  getWarehouseMap = (warehouseData) => {
+    const warehouseMap = warehouseData.map((warehouse) => {
+      return (
+        <option
+          key={warehouse.id}
+          id={warehouse.id}
+          className="add-item__dropdown-item"
+          value={JSON.stringify({
+            warehouseName: warehouse.name,
+            warehouseId: warehouse.id,
+          })}
+          >
+            {warehouse.name}
+          </option>
+      );
+    });
+    return warehouseMap;
+  }
 
   componentDidMount() {
-    axios
-      .get("http://localhost:8080/warehouses")
-      .then((res) => {
-        this.setState({
-          warehouseList: res.data.map((warehouse) => {
-            return {
-              label: warehouse.name,
-            };
-          }),
-        });
-      })
-      .catch((res) => console.log(res));
+    this.getWarehouseData();
   }
 
   render() {
@@ -159,6 +162,7 @@ class AddInventoryItem extends Component {
                     }
                     name="description"
                     placeholder="Please enter a brief item description..."
+                    onChange={this.changeHandler}
                   ></textarea>
                 </div>
 
@@ -166,9 +170,9 @@ class AddInventoryItem extends Component {
                   <label className="add-item__label">Category</label>
                   <select
                     className="add-item__dropdown"
-                    onChange={this.handleCategory}
                     value={this.state.category}
                     name="category"
+                    onChange={this.changeHandler}
                   >
                     {this.state.categoryValues.map((option, index) => (
                       <option
@@ -198,12 +202,11 @@ class AddInventoryItem extends Component {
                   <div className="add-item__radio-wrapper">
                     <div className="add-item__radio-group">
                       <input
-                        type="radio"
-                        id="instock"
+                        type="radio"          
                         value="In Stock"
                         name="status"
                         checked={this.state.status === "In Stock"}
-                        onChange={this.handleStatus}
+                        onChange={this.changeHandler}
                       />
                       <label
                         className="add-item__radio-label"
@@ -215,11 +218,10 @@ class AddInventoryItem extends Component {
                     <div className="add-item__radio-group">
                       <input
                         type="radio"
-                        id="outstock"
                         value="Out of Stock"
                         name="status"
                         checked={this.state.status === "Out Of Stock"}
-                        onChange={this.handleStatus}
+                        onChange={this.changeHandler}
                       />
                       <label
                         className="add-item__radio-label"
@@ -239,23 +241,17 @@ class AddInventoryItem extends Component {
                         : "add-item__input error"
                     }
                     name="quantity"
+                    onChange={this.changeHandler}
                   ></input>
                 </div>
                 <div className="add-item__input-wrap">
                   <label className="add-item__label">Warehouse</label>
                   <select
                     className="add-item__dropdown"
-                    defaultValue={this.state.warehouse}
+                    onChange={this.warehouseHandler}
+                    value={this.state.warehouseName}
                   >
-                    {this.state.warehouseList?.map((option, index) => (
-                      <option
-                        className="add-item__dropdown-item"
-                        key={index}
-                        value={option.value}
-                      >
-                        {option.label}
-                      </option>
-                    ))}
+                    {this.getWarehouseMap(this.state.warehouseData)}
                   </select>
                 </div>
               </section>

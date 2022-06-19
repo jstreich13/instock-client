@@ -6,7 +6,7 @@ import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 
 class EditWarehouse extends Component {
     state = {
-        id: this.props.warehouseId,
+        id: this.props.match.params.id,
         name: null,
         address: null,
         city: null,

@@ -36,10 +36,10 @@ function App() {
                 path="/warehouses/:id"
                 render={(routerProps) => <WarehouseDetails {...routerProps} />}
               /> */}
-        {/* <Route
+        <Route
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
-              /> */}
+              />
         <Route
           path="/inventory"
           exact

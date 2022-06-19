@@ -132,7 +132,7 @@ class EditInventoryItem extends Component {
             <div className='edit-inv-item__boxshadow'>
             <div className='edit-inv-item'>
                 <div className='edit-inv-item__header-holder'>
-                <img onClick={() => useHistory(-1)} className='edit-inv-item__backIcon' alt="Back Button" src={backArrow}/>
+                <img onClick={() => window.history.back()} className='edit-inv-item__backIcon' alt="Back Button" src={backArrow}/>
                 <h1 className='edit-inv-item__header'>Edit Inventory Item</h1>
                 </div>
                 <div className='edit-inv-item__form-holder'>
@@ -166,7 +166,7 @@ class EditInventoryItem extends Component {
                     </form>
                 </div>
                 <div className='edit-inv-item-form__buttons'>
-                        <button onClick={() => useHistory(-1)} className='edit-inv-item-form__cancel'>Cancel</button>
+                        <button onClick={() => window.history.back()} className='edit-inv-item-form__cancel'>Cancel</button>
                         <button type='submit' className='edit-inv-item-form__save' form='editInvForm'>Save</button>
                 </div>
             </div>

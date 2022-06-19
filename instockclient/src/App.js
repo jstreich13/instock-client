@@ -17,6 +17,10 @@ function App() {
           exact
           render={(routerProps) => <WarehouseList {...routerProps} />}
         />
+                path="/"
+                exact
+                render={(routerProps) => <WarehousesPage {...routerProps} />}
+              /> */}
         <Route
           path="/warehouses"
           exact
@@ -27,12 +31,11 @@ function App() {
                 path="/warehouses/add"
                 render={(routerProps) => <AddWarehouse {...routerProps} />}
               /> */}
-        {/* <Route
+        <Route
                 exact
                 path="/warehouses/:id"
                 render={(routerProps) => <WarehouseDetails {...routerProps} />}
-              /> */}
-        {/* <Route
+        <Route
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
               /> */}

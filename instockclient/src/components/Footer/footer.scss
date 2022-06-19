@@ -4,8 +4,10 @@
 
 .footer {
   display: flex;
+  justify-content: center;
   align-self: baseline;
   background-color: $light-Grey;
+  padding-top: 1rem;
 
   @include tablet {
   }
@@ -30,6 +32,7 @@
     display: flex;
     justify-content: center;
     color: $slate;
+    padding-top: 5rem;
   }
 
   @include desktop {

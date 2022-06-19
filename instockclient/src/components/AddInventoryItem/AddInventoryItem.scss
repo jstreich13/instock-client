@@ -3,128 +3,166 @@
 @import "../../styles/partials/variables";
 
 .add-item-wrap {
-    display: flex;
-        justify-content: center;
-        background: $white;
-        background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
+  display: flex;
+  justify-content: center;
+  background: $white;
+  background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
 }
 
 .compheader {
-    border-bottom: 1px solid $cloud;
-    display: flex;
-    padding-left: .5rem;
-    background-color: $white;
+  border-bottom: 1px solid $cloud;
+  display: flex;
+  padding-left: 0.5rem;
+  background-color: $white;
 
-    &__icon {
-        transform: translateY(25px);
-    }
+  &__icon {
+    transform: translateY(25px);
+  }
 
-    &__title {
-        @include mobile__page-header;
-        font-size: 1.5rem;
-        padding-left: .5rem;
-        line-height: 1.75rem;
-
-    }
+  &__title {
+    @include mobile__page-header;
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    line-height: 1.75rem;
+  }
 }
 
 .add-item {
-    width: 90%;
-    margin-inline: 5%;
-    box-shadow: 0 0 4px grey;
-    background-color: $white;
+  width: 90%;
+  margin-inline: 5%;
+  box-shadow: 0 0 4px grey;
+  background-color: $white;
 
-    // &__form {
+  &__form-info {
 
-    // }
-
-    &__form-section {
-        border-bottom: 1px solid $cloud;
-        padding: 1rem 1rem 0 1rem;
-    }
-
-    &__form-title {
-        @include mobile__sub-header;
-        margin-top: 0;
-    }
-
-    &__input-wrap {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-    }
-
-    &__label {
-        @include mobile__labels-links-buttons;
-        padding-bottom: .2rem;
-        font-weight: 600;
-    }
-
-    &__input {
-        width: 87%;
-        height: 1.5rem;
-        margin: 0;
-        border-radius: 20px;
-        padding-inline: 1rem;
-        border: 1px solid $cloud;
-        @include mobile__body-small;
-    }
-
-    &__textarea {
-        width: 87%;
-        height: 6rem;
-        margin: 0;
-        border-radius: 20px;
-        padding-inline: 1rem;
-        border: 1px solid $cloud;
-        @include mobile__body-small;
-    }
-
-    &__dropdown {
-        width: 100%;
-        height: 1.5rem;
-        margin: 0;
-        border-radius: 20px;
-        padding-inline: 1rem;
-        border: 1px solid $cloud;
-        @include mobile__body-small;
-    }
-
-    &__radio-wrapper {
-        display: flex;
-        justify-content: flex-start;
-        @include mobile__body-small;
-    }
-
-    &__radio-label {
-        vertical-align:.15rem;
-        margin-right: 3rem;
-        
-    }
-
-    &__buttons {
+    @include tablet {
         display: flex;
         justify-content: space-between;
-        padding-inline: 1rem;
     }
 
-    &__btn {
-        @include mobile__body-small;
-        height: 2rem;
-        padding-inline: 1rem;
-        width: 47%;
-        margin: 0;
-        color: white;
-        margin-block: 1rem;
-        background-color: $instock-Indigo;
-        border: none;
-        border-radius: 20px; 
-        font-weight: 600;
+  }
 
-        &--cancel {
-            background-color: $white;
-            color: $slate;
-            border: 1px solid $cloud;
-        }
+  &__form-section {
+    border-bottom: 1px solid $cloud;
+    padding-inline: 1rem;
+    margin-top: 1rem;
+
+    @include tablet {
+        width: 50%;
+        padding-inline: 2rem;
+        border-bottom: none;
+        margin-top: 2rem;
     }
+
+    &--availability {
+      border-bottom: none;
+
+      @include tablet {
+        border-left: 1px solid $cloud;
+      }
+    }
+  }
+
+  &__form-title {
+    @include mobile__sub-header;
+    margin-top: 0;
+  }
+
+  &__input-wrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    @include mobile__labels-links-buttons;
+    padding-bottom: 0.2rem;
+    font-weight: 600;
+  }
+
+  &__input {
+    height: 1.5rem;
+    margin: 0;
+    border-radius: 20px;
+    padding-inline: 1rem;
+    border: 1px solid $cloud;
+    @include mobile__body-small;
+  }
+
+  &__textarea {
+    height: 6rem;
+    margin: 0;
+    border-radius: 20px;
+    padding-inline: 1rem;
+    border: 1px solid $cloud;
+    @include mobile__body-small;
+    resize: none;
+  }
+
+  &__dropdown {
+    width: 100%;
+    height: 1.5rem;
+    margin: 0;
+    border-radius: 20px;
+    padding-inline: 1rem;
+    border: 1px solid $cloud;
+    @include mobile__body-small;
+  }
+
+  &__radio-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    @include mobile__body-small;
+  }
+
+  &__radio-label {
+    vertical-align: 0.15rem;
+    margin-right: 3rem;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1rem;
+
+    @include tablet {
+      justify-content: flex-end;
+    }
+  }
+
+  &__btn {
+    @include mobile__body-small;
+    height: 2rem;
+    padding-inline: 1rem;
+    width: 47%;
+    margin: 0;
+    color: white;
+    margin-block: 1rem;
+    background-color: $instock-Indigo;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+
+    @include tablet {
+      width: auto;
+    }
+
+    &--cancel {
+      background-color: $white;
+      color: $slate;
+      border: 1px solid $cloud;
+
+      @include tablet {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.error {
+  border: .0625rem solid $outOfStock-color;
+}
+
+.error-status {
+  color: $outOfStock-color;
 }

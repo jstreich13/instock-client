@@ -11,7 +11,8 @@ class WarehouseList extends Component {
   state = {
     warehouseData: [],
     modal: false,
-    deleteId: ""
+    deleteId: "",
+    editId: ""
   };
 
   componentDidMount() {
@@ -35,6 +36,12 @@ class WarehouseList extends Component {
     this.setState({
       modal: !this.state.modal,
       deleteId: deleteId
+    })
+  }
+
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse
     })
   }
 
@@ -119,7 +126,12 @@ class WarehouseList extends Component {
 
                 <div className="list__actions">
                   <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
-                  <img className="list__icons" src={edit_pen} alt="edit icon" />
+                  <NavLink to={{
+                    pathname: `/warehouses/${warehouse.id}/edit`,
+                    props: {editId: this.props.editId},
+                  }} 
+                  >
+                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/></NavLink>
                 </div>
               </div>
             ))}

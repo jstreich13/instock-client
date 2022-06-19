@@ -56,7 +56,7 @@ class AddInventoryItem extends Component {
           quantity: quantity,
         })
         .then((res) => {
-          alert(`${e.target.name.value} has been submitted as a new item`);
+          alert("Your item has been submitted");
           e.target.reset();
         })
         .catch((err) => {

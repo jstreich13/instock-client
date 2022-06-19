@@ -8,35 +8,89 @@
     margin: 0rem 2rem 1rem 2rem;
 
     &__title{
-        
         margin-top: 0;
+        border-bottom: 1px solid $cloud;
+        @include mobile__page-header;
+        padding: 1rem;
+        text-align: center;
+        font-weight: 600;
     }
     
     &__warehouse{
-
+        border-bottom: 1px solid $cloud;
     }
 
     &__contacts{
-
+        
     }
 
     &__subtitle{
-
+        margin: 1rem;
+        @include mobile__sub-header;
+        font-weight: 600;
+        
     }
     
-    &__label{
+    &__form{
+        margin: 0 1rem 0 1rem;
+    }
 
+    &__label{
+       @include mobile__labels-links-buttons;
+       font-weight: 600;
     }
 
     &__input{
+        width: 100%;
+        margin-bottom: 1rem;
+        @include mobile__labels-links-buttons;
+        height: 36px;
+        padding: 0 16px 0 16px;
+        margin-top: 4px;
+        border-radius: 20px;
+        border: 1px solid $cloud;
 
+        &:focus{
+            outline: 1px solid $instock-Indigo;
+        }
     }
 
     &__submit{
-
+        display: flex;
+        justify-content: space-evenly;
+       
     }
 
-    &__button{
+    &__add{
+        margin: 0 1rem 1rem 1rem;
+        height: 36px;
+        padding: 0 16px;
+        width: 100%;
+        border-radius: 20px;
+        border: none;
+        background-color: $instock-Indigo;
+        color: $white;
+        @include mobile__labels-links-buttons;
+        
+        &:hover{
+            background-color: $graphite;
+        }
 
+    }
+    &__cancel{
+        margin: 0 1rem 1rem 1rem;
+        height: 36px;
+        padding: 0 16px;
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid $cloud;
+        background-color: $white;
+        color: $slate;
+        @include mobile__labels-links-buttons;
+
+        &:hover{
+            color: $instock-Indigo;
+            border: 1px solid $instock-Indigo;
+        }
     }
 }

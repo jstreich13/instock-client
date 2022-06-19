@@ -14,8 +14,15 @@ class AddWarehouse extends Component {
         position: '',
         phone: '',
         email:''
-    }
-    
+    }, 
+    nameError: false,
+    addressError: false,
+    cityError: false,
+    countryError: false,
+    contactNameError: false,
+    contactPositionError: false,
+    phoneError: false,
+    emailError: false,
   };
 
   changeHandler = (e) => {
@@ -24,9 +31,54 @@ class AddWarehouse extends Component {
     })
   }
 
+  handleContact = (e) => {
+    this.setState({
+      contact:{...this.state.contact, [e.target.name]: e.target.value}});
+}
+
+
   newWarehouse = (e) => {
     e.preventDefault()
-    
+
+     //Regular Expressions to test phone number and email
+     const phoneRegEx = /^(\(?\+?[0-9]*\)?)?[0-9_\- ()]*$/;
+     const emailRegEx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+     //Test email against RegEx
+     const verifyEmail = (email) => {
+       return emailRegEx.test(email);
+     };
+ 
+     //Test phone number against RegEx
+     const verifyPhone = (phone) => {
+       return phoneRegEx.test(phone);
+     };
+
+  if(!this.state.name){
+      this.setState({nameError: true});
+  } 
+  if(!verifyEmail(this.state.contact.email)){
+      this.setState({emailError: true});
+  }
+  if(!verifyPhone(this.state.contact.phone)){
+      this.setState({phoneError: true});
+  }
+  if(!this.state.address){
+      this.setState({addressError: true});
+  }
+  if(!this.state.city){
+      this.setState({cityError: true});
+  }
+  if(!this.state.country){
+      this.setState({countryError: true});
+  }
+  if(!this.state.contact.name){
+      this.setState({contactNameError: true});
+  }
+  if(!this.state.contact.position){
+      this.setState({contactPositionError: true});
+  }
+  else{
     axios
         .post('http://localhost:8080/warehouses',{
             name: this.state.warehouse,
@@ -47,15 +99,17 @@ class AddWarehouse extends Component {
             console.log(error);
         });
   }
+}
 
   render() {
     return (
-      <section className="addWarehouse">
+      <form className="addWarehouse">
         <h1 className="addWarehouse__title"><img src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
 
         <div className="addWarehouse__warehouse">
           <h2 className="addWarehouse__subtitle">Warehouse Details</h2>
 
+          <div className="addWarehouse__form">
           <label className="addWarehouse__label">Warehouse Name</label>
           <input
             className="addWarehouse__input"
@@ -96,9 +150,11 @@ class AddWarehouse extends Component {
             onChange={this.changeHandler}
           />
         </div>
+        </div>
         <div className="addWarehouse__contacts">
           <h2 className="addWarehouse__subtitle">Contact Details</h2>
 
+          <div className="addWarehouse__form">
           <label className="addWarehouse__label">Contact Name</label>
           <input
             className="addWarehouse__input"
@@ -106,7 +162,7 @@ class AddWarehouse extends Component {
             name="name"
             type="text"
             placeholder="Contact Name"
-            onChange={this.changeHandler}
+            onChange={this.handleContact}
           />
 
           <label className="addWarehouse__label">Position</label>
@@ -116,7 +172,7 @@ class AddWarehouse extends Component {
             name="position"
             type="text"
             placeholder="Position"
-            onChange={this.changeHandler}
+            onChange={this.handleContact}
           />
 
           <label className="addWarehouse__label">Phone Number</label>
@@ -126,7 +182,7 @@ class AddWarehouse extends Component {
             name="phone"
             type="text"
             placeholder="Phone Number"
-            onChange={this.changeHandler}
+            onChange={this.handleContact}
           />
 
           <label className="addWarehouse__label">Email</label>
@@ -136,14 +192,15 @@ class AddWarehouse extends Component {
             name="email"
             type="text"
             placeholder="Email"
-            onChange={this.changeHandler}
+            onChange={this.handleContact}
           />
         </div>
-        <div className="addWarehouse__submit">
-          <button className="addWarehouse__button">Cancel</button>
-          <button className="addWarehouse__button" onClick={this.newWarehouse}>+ Add Warehouse</button>
         </div>
-      </section>
+        <div className="addWarehouse__submit">
+          <button className="addWarehouse__cancel">Cancel</button>
+          <button className="addWarehouse__add" onClick={this.newWarehouse}>+ Add Warehouse</button>
+        </div>
+      </form>
     );
   }
 }

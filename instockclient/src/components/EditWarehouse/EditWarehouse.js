@@ -6,7 +6,8 @@ import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 
 class EditWarehouse extends Component {
     state = {
-        id: this.props.warehouseId,
+
+        id: this.props.match.params.id,
         name: null,
         address: null,
         city: null,
@@ -128,7 +129,7 @@ class EditWarehouse extends Component {
                 <div className='edit-warehouse__boxshadow'>
                 <div className='edit-warehouse'>
                     <div className='edit-warehouse__header-holder'>
-                        <img onClick={() => useHistory(-1)} src={backArrow} alt="back icon" className='edit-warehouse__backIcon'/>
+                        <img onClick={() => window.history.back()} src={backArrow} alt="back icon" className='edit-warehouse__backIcon'/>
                         <h1 className='edit-warehouse__header'>Edit Warehouse</h1>
                     </div>
                     <div className='edit-warehouse__form-holder'>
@@ -158,7 +159,7 @@ class EditWarehouse extends Component {
                     </form>
                     </div>
                     <div className='edit-warehouse-form__buttons'>
-                        <button onClick={() => useHistory(-1)} className='edit-warehouse-form__cancel'>Cancel</button>
+                        <button onClick={() => window.history.back()} className='edit-warehouse-form__cancel'>Cancel</button>
                         <button form='editWarehouseForm' type='submit' className='edit-warehouse-form__save'>Save</button>
                     </div>
                 </div>

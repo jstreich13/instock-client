@@ -53,7 +53,9 @@ function App() {
         {/* <Route
           path="/inventory/:id"
           render={(routerProps) => <InventoryItemDetails {...routerProps} />}
+      A22-P/warehouse-details
         /> */}
+
         <Route
                 path="/inventories/:id/edit"
                 render={(routerProps) => <EditInventoryItem {...routerProps} />}

@@ -3,10 +3,11 @@ import { Component } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
+import WarehouseInventoryList from '../WarehouseInventoryList/WarehouseInventoryList';
 
 class WarehouseDetails extends Component {
     state={
-        id: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+        id: this.props.match.params.id,
         address: null,
         city: null,
         country: null,
@@ -63,7 +64,7 @@ class WarehouseDetails extends Component {
                             </div>
                         </div>
                         <div>
-                            {/* alis component goes here */}
+                            <WarehouseInventoryList />
                         </div>
                     </div>
                 </div>

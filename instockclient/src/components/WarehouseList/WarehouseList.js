@@ -6,6 +6,7 @@ import garbage from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_pen from "../../Assets/Icons/edit-24px.svg";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
+
 import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehousehouseModal";
 class WarehouseList extends Component {
   state = {
@@ -34,16 +35,23 @@ class WarehouseList extends Component {
   handleModal = (deleteId) => {
     this.setState({
       modal: !this.state.modal,
-      deleteId: deleteId
+      deleteId: deleteId,
+    });
+  };
+
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse
     })
   }
 
   handleDelete = async () => {
-    await axios.delete(`http://localhost:8080/warehouses/${this.state.deleteId}/delete`
+    await axios.delete(
+      `http://localhost:8080/warehouses/${this.state.deleteId}/delete`
     );
     this.handleModal();
     this.getWarehouseList();
-  }
+  };
 
   render() {
     return (
@@ -77,14 +85,15 @@ class WarehouseList extends Component {
 
           <div className="list">
             {this.state.warehouseData.map((warehouse) => (
-              <div className="list__item">
+              <div className="list__item" key={warehouse.id}>
                 <div className="list__info">
                   <div className="list__supergrouping">
                     <div className="list__grouping">
                       <p className="list__subtitle">WAREHOUSE</p>
                       <NavLink
                         className="list__link"
-                        to={`/warehouses/${warehouse.id}`}>
+                        to={`/warehouses/${warehouse.id}`}
+                      >
                         <p className="list__warelink">{warehouse.name}</p>
                         <img
                           className="list__chevron"
@@ -119,7 +128,12 @@ class WarehouseList extends Component {
 
                 <div className="list__actions">
                   <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
-                  <img className="list__icons" src={edit_pen} alt="edit icon" />
+                  <NavLink to={{
+                    pathname: `/warehouses/${warehouse.id}/edit`,
+                    props: {editId: this.props.editId},
+                  }} 
+                  >
+                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/></NavLink>
                 </div>
               </div>
             ))}

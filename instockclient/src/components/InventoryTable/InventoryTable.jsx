@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
+import DeleteItem from "../DeleteItem/DeleteItem";
 
 export default class InventoryList extends Component {
   state = {
@@ -15,13 +16,11 @@ export default class InventoryList extends Component {
 
   componentDidMount() {
     this.getInventoryList();
-
-    //back end task for getting inventory list == for Jeremy
   }
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventory/")
+      .get("http://localhost:8080/inventories/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -33,7 +32,6 @@ export default class InventoryList extends Component {
   }
 
   render() {
-    //if conditional<>
     return (
       <div className="header-wrapper">
         <div className="inventory">
@@ -133,11 +131,14 @@ export default class InventoryList extends Component {
                   </div>
 
                   <div className="inventory-list__actions">
-                    <img
-                      className="inventory-list__icons"
-                      src={trash}
-                      alt="delete icon"
-                    />
+                    <div>
+                      {/* <DeleteItem key={this.state.props.id} itemName={this.state.props.itemName} /> */}
+                      <img
+                        className="inventory-list__icons"
+                        src={trash}
+                        alt="delete icon"
+                      />
+                    </div>
                     <img
                       className="inventory-list__icons edit-pen"
                       src={edit_icon}

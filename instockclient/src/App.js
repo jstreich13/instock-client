@@ -4,12 +4,6 @@ import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import InventoryItemDetails from "./components/DisplayingItem/DisplayingItem";
-import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
-import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
-import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-import Footer from "./components/Footer/footer";
 
 function App() {
   return (
@@ -31,15 +25,14 @@ function App() {
                 path="/warehouses/add"
                 render={(routerProps) => <AddWarehouse {...routerProps} />}
               /> */}
-        {/* <Route
+        <Route
                 exact
                 path="/warehouses/:id"
                 render={(routerProps) => <WarehouseDetails {...routerProps} />}
-              /> */}
-        {/* <Route
+        <Route
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
-              /> */}
+              />
         <Route
           path="/inventory"
           exact
@@ -50,17 +43,14 @@ function App() {
           exact
           render={(routerProps) => <AddInventoryItem {...routerProps} />}
         />
-        <Route
-          path="/inventory/:id"
-          render={(routerProps) => <InventoryItemDetails {...routerProps} />}
-        />
         {/* <Route
+          path="/inventory/:id"
                 path="/inventories/:id/edit"
-                render={(routerProps) => <EditInventory {...routerProps} />}
-              /> */}
+                render={(routerProps) => <EditInventoryItem {...routerProps} />}
+              />
       </Switch>
 
-      {/* <Footer/> */}
+      <Footer />
     </BrowserRouter>
   );
 }

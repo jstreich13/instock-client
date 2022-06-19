@@ -1,11 +1,12 @@
-@use "" as *;
-@use "" as *;
-@use "" as *;
-@use "" as *;
+@use "../../styles/./partials/fonts" as *;
+@use "../../styles/./partials/mixins" as *;
+@use "../../styles/./partials/variables" as *;
 
 .footer {
-    display: flex;
-    align-self: baseline;
+  display: flex;
+  align-self: baseline;
+  background-color: $light-Grey;
+
   @include tablet {
   }
 
@@ -13,20 +14,38 @@
   }
 }
 .footer__text {
-    display:flex;
-    justify-content: center;
-    color: #5C667E;
-    font-size: 16px;
+  display: flex;
+  justify-content: center;
+  color: $slate;
+  font-family: "Titillium Web";
+  font-size: 0.69rem; //11px
+  line-height: 1rem; //16px
+  background-color: $light-Grey;
+  margin: 0;
+  padding: 2rem;
   @include tablet {
+    font-family: "Titillium Web";
+    font-size: 0.75rem; //12px
+    line-height: 1.13rem; //18px
+    display: flex;
+    justify-content: center;
+    color: $slate;
   }
 
   @include desktop {
+    font-family: "Titillium Web";
+    font-size: 0.75rem; //12px
+    line-height: 1.13rem; //18px
+    display: flex;
+    justify-content: center;
+    color: $slate;
   }
 
   .footer__container {
     @include tablet {
     }
-  
+
     @include desktop {
     }
+  }
 }

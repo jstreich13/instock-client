@@ -35,7 +35,6 @@ function App() {
                 exact
                 path="/warehouses/:id"
                 render={(routerProps) => <WarehouseDetails {...routerProps} />}
-              />
         <Route
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}

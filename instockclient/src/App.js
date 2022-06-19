@@ -4,8 +4,8 @@ import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import InventoryItemDetails from "./components/DisplayingItem/DisplayingItem";
-// import Footer from "./components/Footer/footer"
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
+import Footer from "./components/Footer/footer";
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
               /> */}
       </Switch>
 
-      {/* <Footer/> */}
+      <Footer />
     </BrowserRouter>
   );
 }

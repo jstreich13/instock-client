@@ -118,7 +118,7 @@ class WarehouseList extends Component {
                 </div>
 
                 <div className="list__actions">
-                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
+                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(deleteId)}/>
                   <NavLink to={`/warehouses/${warehouse.id}/edit`}><img className="list__icons" src={edit_pen} alt="edit icon" /></NavLink>
                 </div>
               </div>

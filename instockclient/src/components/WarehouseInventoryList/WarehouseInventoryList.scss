@@ -2,11 +2,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.warehouseInventoryList{
-    box-shadow: 0 0 4px grey;
-    margin: 1rem 2rem 1rem 2rem;
-}
-
 .item{
     display: none;
 
@@ -24,7 +19,6 @@
     &__section{
         display: flex;
         align-items: center;
-        
 
         &--tablet{
         
@@ -41,18 +35,12 @@
             }
         }
     }
-
-    &__icons{
-
-    }
 }
 
 .list{
 
-
     @include tablet {
-        margin-top: 0;
-        
+        margin-top: 0; 
     }
     
     &__container{
@@ -64,9 +52,7 @@
             display: flex;
             padding-bottom: 0; 
             justify-content: space-between;
-            
         }
-
     }
 
     &__group-container{
@@ -75,7 +61,6 @@
         @include tablet {
             width: 100%;
             justify-content: space-between;
-            
         }
     }
 
@@ -118,17 +103,7 @@
         @include tablet{
             @include tablet__body-medium;
             margin-left: 2rem;
-        }
-
-        
-    }
-
-    &__inventory-arrow{
-
-    }
-    
-    &__status-container{
-        
+        }  
     }
 
     &__instock{
@@ -143,12 +118,9 @@
         text-transform: uppercase;
         font-weight: 600;
 
-
         @include tablet{
             @include tablet__body-small;
-           
         }
-
     }
 
     &__outofstock{
@@ -163,18 +135,9 @@
         text-transform: uppercase;
         font-weight: 600;
 
-
         @include tablet{
             @include tablet__body-small;
-           
         }
-
-    }
-
-    &__category-container{
-     
-        @include tablet{}
-       
     }
 
     &__category{
@@ -184,10 +147,6 @@
         @include tablet{
             @include tablet__body-medium;
         }
-    }
-
-    &__quantity-container{
-
     }
 
     &__quantity{
@@ -200,7 +159,6 @@
         }
     }
     
-
     &__title{
         @include mobile__table-header;
         font-weight: 600;
@@ -211,7 +169,6 @@
         }
     }
 
-
     &__image-container{
         display: flex;
         justify-content: space-between;
@@ -220,7 +177,6 @@
         @include tablet {
             margin: 0;
         }
-        
     }
 
     &__image{

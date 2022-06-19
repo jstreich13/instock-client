@@ -46,7 +46,7 @@ class WarehouseDetails extends Component {
                         <div className='warehouse-details__header-holder'>
                             <img onClick={() => window.history.back()} src={backArrow} alt="back icon" className='warehouse-details__backIcon'/>
                             <h1 className='warehouse-details__header'>{this.state.warehouseName}</h1>
-                            <Link><button className='warehouse-details__edit'><img className='warehouse-details__edit-icon' src={editIcon}/>Edit</button></Link>
+                            <Link to={`/warhouses/${this.state.id}/edit`}><button className='warehouse-details__edit'><img className='warehouse-details__edit-icon' src={editIcon}/>Edit</button></Link>
                         </div>
                         <div className='warehouse-details__info-holder' >
                             <div className='warehouse-details__address'>

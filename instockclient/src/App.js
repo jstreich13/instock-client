@@ -6,6 +6,7 @@ import WarehouseList from "./components/WarehouseList/WarehouseList";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import Footer from "./components/Footer/footer";
+import DisplayingItem from "./components/DisplayingItem/DisplayingItem";
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
         />
         <Route
           path="/inventory/:id"
-          render={(routerProps) => <InventoryItemDetails {...routerProps} />}
+          render={(routerProps) => <DisplayingItem {...routerProps} />}
         />
         {/* <Route
                 path="/inventories/:id/edit"

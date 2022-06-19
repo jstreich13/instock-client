@@ -132,7 +132,7 @@ export default class InventoryList extends Component {
 
                   <div className="inventory-list__actions">
                     <div>
-                      <DeleteItem key={props.id} itemName={props.itemName} />
+                      {/* <DeleteItem key={this.state.props.id} itemName={this.state.props.itemName} /> */}
                       <img
                         className="inventory-list__icons"
                         src={trash}

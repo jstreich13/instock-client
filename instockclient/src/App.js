@@ -8,13 +8,15 @@ import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 // import Footer from "./components/Footer/footer"
 import Footer from "./components/Footer/footer";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <AddWarehouse/>
       <Switch>
-        <Route
+        {/* <Route
           path="/"
           exact
           render={(routerProps) => <WarehouseList {...routerProps} />}
@@ -23,7 +25,7 @@ function App() {
           path="/warehouses"
           exact
           render={(routerProps) => <WarehouseList {...routerProps} />}
-        />
+        /> */}
         {/* <Route
                 exact
                 path="/warehouses/add"
@@ -38,7 +40,7 @@ function App() {
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
               /> */}
-        <Route
+        {/* <Route
           path="/inventory"
           exact
           render={(routerProps) => <InventoryTable {...routerProps} />}
@@ -47,16 +49,16 @@ function App() {
           path="/inventory/add"
           exact
           render={(routerProps) => <AddInventoryItem {...routerProps} />}
-        />
+        /> */}
         {/* <Route
                 path="/inventory/:id"
                 exact
                 render={(routerProps) => <InventoryItemDetails {...routerProps} />}
               /> */}
-        <Route
+        {/* <Route
           path="/inventory/:id/edit"
           render={(routerProps) => <EditInventoryItem {...routerProps} />}
-        />
+        /> */}
       </Switch>
 
       <Footer />

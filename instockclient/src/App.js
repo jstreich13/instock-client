@@ -3,18 +3,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
-import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
-// import Footer from "./components/Footer/footer"
-import Footer from "./components/Footer/footer";
-import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
-
+import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
+import Footer from './components/Footer/footer'
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <AddWarehouse/>
+      <Header/>
+      <WarehouseInventoryList/>
       <Switch>
         {/* <Route
           path="/"
@@ -44,8 +40,6 @@ function App() {
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
               /> */}
         {/* <Route
-              />
-        <Route
           path="/inventory"
           exact
           render={(routerProps) => <InventoryTable {...routerProps} />}
@@ -64,13 +58,9 @@ function App() {
           path="/inventory/:id/edit"
           render={(routerProps) => <EditInventoryItem {...routerProps} />}
         /> */}
-          path="/inventory/:id"
-                path="/inventories/:id/edit"
-                render={(routerProps) => <EditInventoryItem {...routerProps} />}
-              />
       </Switch>
 
-      <Footer />
+      <Footer/>
     </BrowserRouter>
   );
 }

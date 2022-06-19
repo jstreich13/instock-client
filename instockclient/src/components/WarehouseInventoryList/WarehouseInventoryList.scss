@@ -116,6 +116,7 @@
         display: flex;
         
         @include tablet{
+            @include tablet__body-medium;
             margin-left: 2rem;
         }
 
@@ -144,7 +145,7 @@
 
 
         @include tablet{
-            
+            @include tablet__body-small;
            
         }
 
@@ -164,7 +165,7 @@
 
 
         @include tablet{
-            
+            @include tablet__body-small;
            
         }
 
@@ -181,7 +182,7 @@
         color: $instock-Black;
 
         @include tablet{
-          
+            @include tablet__body-medium;
         }
     }
 
@@ -194,7 +195,8 @@
         color: $instock-Black;
 
         @include tablet{
-            margin-right: 110px
+            margin-right: 110px;
+            @include tablet__body-medium;
         }
     }
     

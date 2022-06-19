@@ -52,7 +52,7 @@ class WarehouseList extends Component {
           <div className="wareheader">
             <h1 className="wareheader__title">Warehouses</h1>
             <input className="wareheader__search" placeholder="Search..." />
-            <NavLink to={"/warehouses/add"} className="wareheader__add-btn">+ Add New Warehouse</NavLink>
+            <button className="wareheader__add-btn">+ Add New Warehouse</button>
           </div>
 
           <ul className="labels">
@@ -118,8 +118,8 @@ class WarehouseList extends Component {
                 </div>
 
                 <div className="list__actions">
-                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(deleteId)}/>
-                  <NavLink to={`/warehouses/${warehouse.id}/edit`}><img className="list__icons" src={edit_pen} alt="edit icon" /></NavLink>
+                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
+                  <img className="list__icons" src={edit_pen} alt="edit icon" />
                 </div>
               </div>
             ))}

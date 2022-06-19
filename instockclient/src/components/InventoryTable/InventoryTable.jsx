@@ -21,7 +21,7 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventory/")
+      .get("http://localhost:8080/inventories/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,

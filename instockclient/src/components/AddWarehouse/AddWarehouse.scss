@@ -4,8 +4,12 @@
 
 .addWarehouse{
 
-    &__title{
+    box-shadow: 0 0 4px grey;
+    margin: 0rem 2rem 1rem 2rem;
 
+    &__title{
+        
+        margin-top: 0;
     }
     
     &__warehouse{
@@ -33,6 +37,6 @@
     }
 
     &__button{
-        
+
     }
 }

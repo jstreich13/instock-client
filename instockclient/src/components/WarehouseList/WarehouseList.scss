@@ -4,14 +4,23 @@
 
 .warehouses {
     width: 90%;
-    margin: 5%;
+    margin-inline: 5%;
     box-shadow: 0 0 4px grey;
 }
 
-.header{
+.warehouses-wrap {
+    display: flex;
+        justify-content: center;
+        background: $white;
+        background: linear-gradient(0deg, $light-Grey 90%, $graphite 90%);
+
+}
+
+.wareheader{
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid $light-Grey;
+    background-color: $white;
 
     @include tablet {
         flex-direction: row;
@@ -93,6 +102,7 @@
 .list {
     display: flex;
     flex-direction: column;
+    background-color: $white;
 
     &__item {
         display: flex;
@@ -112,7 +122,7 @@
         @include tablet {
             width: 100%;
             justify-content: space-around;
-            padding-inline: 1.5rem;
+            padding-inline-start: 2rem;
         }
     } 
 
@@ -191,8 +201,9 @@
     &__icons {
 
         @include tablet {
-            width: 1rem;
-            padding-left: 1rem;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1.5rem;
         }
     }
 }

@@ -14,7 +14,7 @@ function DeleteInventoryModal(props) {
         <section className="modal__content">
           <div className="modal__info">
             <h2 className="modal__title">Delete {inventoryArr.name} inventory item?</h2>
-            <p className="modal__text"> Please confirm that you'd like to delete {inventory.name} from the inventory list. You won't be able to undo this action.</p>
+            <p className="modal__text"> Please confirm that you'd like to delete from the inventory list. You won't be able to undo this action.</p>
           </div>
           <div className="modal__buttons">
             <button className="modal__cancel" onClick={()=> props.handleModal()}>Cancel</button>

@@ -47,7 +47,7 @@ class WarehouseList extends Component {
 
   handleDelete = async () => {
     await axios.delete(
-      `http://localhost:8080/warehouses/${this.state.deleteId}/delete`
+      `http://localhost:8080/warehouses/${this.state.deleteId}`
     );
     this.handleModal();
     this.getWarehouseList();
@@ -60,7 +60,7 @@ class WarehouseList extends Component {
           <div className="wareheader">
             <h1 className="wareheader__title">Warehouses</h1>
             <input className="wareheader__search" placeholder="Search..." />
-            <button className="wareheader__add-btn">+ Add New Warehouse</button>
+            <NavLink to={"/warehouses/add"}><button className="wareheader__add-btn">+ Add New Warehouse</button></NavLink>
           </div>
 
           <ul className="labels">
@@ -128,12 +128,9 @@ class WarehouseList extends Component {
 
                 <div className="list__actions">
                   <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
-                  <NavLink to={{
-                    pathname: `/warehouses/${warehouse.id}/edit`,
-                    props: {editId: this.props.editId},
-                  }} 
-                  >
-                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/></NavLink>
+                  <NavLink to={`/warehouses/${warehouse.id}/edit`}>
+                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/>
+                  </NavLink>
                 </div>
               </div>
             ))}

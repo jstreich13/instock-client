@@ -20,7 +20,7 @@ function DeleteWarehouseModal(props) {
           </div>
           <div className="modal__buttons">
             <button className="modal__cancel" onClick={()=> props.handleModal()}>Cancel</button>
-            <button className="modal__delete" onClick={props.delete}>Delete</button>
+            <button className="modal__delete" onClick={()=> props.deleteHandler(warehouseArr.id)}>Delete</button>
           </div>
         </section>
       </div>

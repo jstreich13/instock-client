@@ -98,13 +98,14 @@ class AddWarehouse extends Component {
         .catch((error) => {
             console.log(error);
         });
+    
   }
 }
 
   render() {
     return (
       <form className="addWarehouse">
-        <h1 className="addWarehouse__title"><img src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
+        <h1 className="addWarehouse__title"><img onClick={() => window.history.back()} src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
 
         <div className="addWarehouse__warehouse">
           <h2 className="addWarehouse__subtitle">Warehouse Details</h2>
@@ -197,7 +198,7 @@ class AddWarehouse extends Component {
         </div>
         </div>
         <div className="addWarehouse__submit">
-          <button className="addWarehouse__cancel">Cancel</button>
+          <button className="addWarehouse__cancel" >Cancel</button>
           <button className="addWarehouse__add" onClick={this.newWarehouse}>+ Add Warehouse</button>
         </div>
       </form>

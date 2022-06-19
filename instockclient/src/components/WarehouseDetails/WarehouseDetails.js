@@ -65,7 +65,7 @@ class WarehouseDetails extends Component {
                             </div>
                         </div>
                         <div>
-                            <WarehouseInventoryList />
+                            <WarehouseInventoryList warehouseId={this.state.id} />
                         </div>
                     </div>
                 </div>

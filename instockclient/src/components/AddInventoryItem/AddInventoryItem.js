@@ -249,7 +249,7 @@ class AddInventoryItem extends Component {
                   <select
                     className="add-item__dropdown"
                     onChange={this.warehouseHandler}
-                    value={this.state.warehouseName}
+                    defaultValue={this.state.warehouseName}
                   >
                     {this.getWarehouseMap(this.state.warehouseData)}
                   </select>

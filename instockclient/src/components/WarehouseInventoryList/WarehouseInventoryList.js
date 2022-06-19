@@ -17,7 +17,7 @@ class WarehouseInventoryList extends Component {
   
   componentDidMount() {
     axios
-      .get(`http://localhost:8080/inventories`)
+      .get(`http://localhost:8080/inventories/warehouseInventory/${this.state.id}`)
         .then((response) => {
 
           this.setState({
@@ -92,7 +92,7 @@ class WarehouseInventoryList extends Component {
                     src={deleteIcon}
                     alt="Delete Item"
                   />
-                  <NavLink className="list__link"to='/'><img className="list__image" src={editIcon} alt="Edit Icon" /></NavLink>
+                  <NavLink className="list__link" to={`/inventories/${data.id}`}><img className="list__image" src={editIcon} alt="Edit Icon" /></NavLink>
                 </div>
               </section>
             );

@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
-import DeleteItem from "../DeleteItem/DeleteItem";
+import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal"
 
 export default class InventoryList extends Component {
   state = {
@@ -20,7 +20,7 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventories/")
+      .get("http://localhost:8080/inventories")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -41,7 +41,7 @@ export default class InventoryList extends Component {
               className="inventory__header-search"
               placeholder="Search..."
             />
-            <button className="inventory__header-addbtn">+ Add New Item</button>
+            <NavLink to={"/inventory/add"}><button className="inventory__header-addbtn">+ Add New Item</button></NavLink>
           </div>
 
           <ul className="inventory__list-labels">
@@ -139,18 +139,30 @@ export default class InventoryList extends Component {
                         alt="delete icon"
                       />
                     </div>
+                    <NavLink to={`/inventories/${inventory.id}/edit`}>
                     <img
                       className="inventory-list__icons edit-pen"
                       src={edit_icon}
                       alt="edit icon"
-                    />
+                    /></NavLink>
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
+        {/* {this.state.modal && this.state.modal === true ? (
+          <DeleteInventoryModal
+            // warehouseData={this.state.warehouseData}
+            // handleModal={this.handleModal}
+            // deleteHandler={this.handleDelete}
+            // deleteId={this.state.deleteId}
+          />
+        ) : (
+          <></>
+        )} */}
       </div>
     );
+    
   }
 }

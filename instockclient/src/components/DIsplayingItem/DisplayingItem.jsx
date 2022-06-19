@@ -14,7 +14,7 @@ export default class DisplayingItem extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     axios
-      .get(`http://localhost:8080/inventory/${this.props.match.params.id}`)
+      .get(`http://localhost:8080/inventories/${this.props.match.params.id}`)
       .then((res) => {
         console.log(res);
         this.setState({
@@ -77,7 +77,7 @@ export default class DisplayingItem extends Component {
                         <div className="inv__buttons">
                           <Link
                             className="inv__buttons--edit-container"
-                            to={`/editInventory/${id}`}
+                            to={`/inventories/${id}/edit`}
                           >
                             <img
                               className="inv__buttons--edit-icon"

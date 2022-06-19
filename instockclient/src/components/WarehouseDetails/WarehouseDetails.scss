@@ -32,7 +32,7 @@
 
     &__header{
         @include mobile__page-header;
-
+        margin-right: auto;
         @include tablet {
             @include tablet__page-header;
         }
@@ -54,12 +54,36 @@
         }
     }
 
+    &__edit-icon{
+        fill: $white;
+    }
+    &__edit{
+        @include mobile__body-small;
+        border: $instock-Indigo;
+        margin-left: auto;
+        border-radius: 20px;
+        height: 36px;
+        color: $white;
+        background-color: $instock-Indigo;
+        align-self: center;
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+
+        @include tablet{
+            @include tablet__body-small;
+            height: 38px;
+        }
+    }
+
     &__header-holder{
         display: flex;
         flex-direction: row;
         padding-left: 1rem;
         padding-right: 1rem;
         border-bottom: 1px solid $slate;
+        align-items: center;
     }
 
     &__address {

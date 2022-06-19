@@ -31,15 +31,15 @@ function App() {
                 path="/warehouses/add"
                 render={(routerProps) => <AddWarehouse {...routerProps} />}
               /> */}
-        {/* <Route
+        <Route
                 exact
                 path="/warehouses/:id"
                 render={(routerProps) => <WarehouseDetails {...routerProps} />}
-              /> */}
-        {/* <Route
+              />
+        <Route
                 path="/warehouses/:id/edit"
                 render={(routerProps) => <EditWarehouse {...routerProps} />}
-              /> */}
+              />
         <Route
           path="/inventory"
           exact
@@ -54,10 +54,10 @@ function App() {
           path="/inventory/:id"
           render={(routerProps) => <InventoryItemDetails {...routerProps} />}
         />
-        {/* <Route
+        <Route
                 path="/inventories/:id/edit"
-                render={(routerProps) => <EditInventory {...routerProps} />}
-              /> */}
+                render={(routerProps) => <EditInventoryItem {...routerProps} />}
+              />
       </Switch>
 
       {/* <Footer/> */}

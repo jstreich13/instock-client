@@ -7,7 +7,7 @@ import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 class EditInventoryItem extends Component {
     //state holds item info, values for drop downs, and error status of different input fields
     state = {
-        itemId: this.props.inventoryId,
+        itemId: this.props.match.params.id,
         name: null,
         description: null,
         category: null, 

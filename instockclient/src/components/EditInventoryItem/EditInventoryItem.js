@@ -7,14 +7,13 @@ import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 class EditInventoryItem extends Component {
     //state holds item info, values for drop downs, and error status of different input fields
     state = {
-        itemId: "8f16bd30-bab5-40af-aca2-b63d5fdd1acc",
+        itemId: this.props.inventoryId,
         name: null,
         description: null,
         category: null, 
         status: null,
         quantity: null,
         warehouse: null,
-        prevLink: null,
         warehouseList: null,
         categoryValues: [
             {
@@ -167,7 +166,7 @@ class EditInventoryItem extends Component {
                     </form>
                 </div>
                 <div className='edit-inv-item-form__buttons'>
-                        <button className='edit-inv-item-form__cancel'>Cancel</button>
+                        <button onClick={() => useHistory(-1)} className='edit-inv-item-form__cancel'>Cancel</button>
                         <button type='submit' className='edit-inv-item-form__save' form='editInvForm'>Save</button>
                 </div>
             </div>

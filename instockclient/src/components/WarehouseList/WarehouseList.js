@@ -6,12 +6,13 @@ import garbage from "../../Assets/Icons/delete_outline-24px.svg";
 import edit_pen from "../../Assets/Icons/edit-24px.svg";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
+
 import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehousehouseModal";
 class WarehouseList extends Component {
   state = {
     warehouseData: [],
     modal: false,
-    deleteId: ""
+    deleteId: "",
   };
 
   componentDidMount() {
@@ -34,16 +35,17 @@ class WarehouseList extends Component {
   handleModal = (deleteId) => {
     this.setState({
       modal: !this.state.modal,
-      deleteId: deleteId
-    })
-  }
+      deleteId: deleteId,
+    });
+  };
 
   handleDelete = async () => {
-    await axios.delete(`http://localhost:8080/warehouses/${this.state.deleteId}/delete`
+    await axios.delete(
+      `http://localhost:8080/warehouses/${this.state.deleteId}/delete`
     );
     this.handleModal();
     this.getWarehouseList();
-  }
+  };
 
   render() {
     return (
@@ -84,7 +86,8 @@ class WarehouseList extends Component {
                       <p className="list__subtitle">WAREHOUSE</p>
                       <NavLink
                         className="list__link"
-                        to={`/warehouses/${warehouse.id}`}>
+                        to={`/warehouses/${warehouse.id}`}
+                      >
                         <p className="list__warelink">{warehouse.name}</p>
                         <img
                           className="list__chevron"
@@ -118,7 +121,18 @@ class WarehouseList extends Component {
                 </div>
 
                 <div className="list__actions">
-                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
+                  <div>
+                    <DeleteItem
+                      key={props.id}
+                      warehouseName={props.warehouseName}
+                    />
+                    <img
+                      className="list__icons"
+                      src={garbage}
+                      alt="delete icon"
+                      onClick={() => this.handleModal(warehouse.id)}
+                    />
+                  </div>
                   <img className="list__icons" src={edit_pen} alt="edit icon" />
                 </div>
               </div>

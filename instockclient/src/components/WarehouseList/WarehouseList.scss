@@ -70,7 +70,10 @@
         margin-block: 1rem;
         background-color: $instock-Indigo;
         border: none;
-        border-radius: 20px;    
+        border-radius: 20px;   
+        text-decoration: none; 
+        text-align: center;
+        line-height: 2.25;
         
         @include tablet {
            width: 30%;
@@ -206,10 +209,13 @@
 
     &__icons {
 
+        &:hover {
+            cursor: pointer;
+        }
+
         @include tablet {
             height: 2rem;
             width: 2rem;
-            margin-right: 1.5rem;
         }
     }
 }

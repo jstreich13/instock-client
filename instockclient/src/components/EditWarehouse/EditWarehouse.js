@@ -37,10 +37,10 @@ class EditWarehouse extends Component {
                     city: res.data.city,
                     country: res.data.country, 
                     contact: {
-                        name: res.data.contact.name,
-                        position: res.data.contact.position,
-                        phone: res.data.contact.phone,
-                        email: res.data.contact.email
+                        // name: res.data.contact.name,
+                        // position: res.data.contact.position,
+                        // phone: res.data.contact.phone,
+                        // email: res.data.contact.email
                     },
                     apiReturned: true
                 });

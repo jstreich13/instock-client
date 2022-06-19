@@ -48,16 +48,12 @@ class WarehouseList extends Component {
   render() {
     return (
       <div className="warehouses-wrap">
-<<<<<<< HEAD
-      <div className="warehouses">
-=======
         <div className="warehouses">
           <div className="wareheader">
             <h1 className="wareheader__title">Warehouses</h1>
             <input className="wareheader__search" placeholder="Search..." />
-            <button className="wareheader__add-btn">+ Add New Warehouse</button>
+            <NavLink to={"/warehouses/add"} className="wareheader__add-btn">+ Add New Warehouse</NavLink>
           </div>
->>>>>>> develop
 
           <ul className="labels">
             <li className="labels__item">
@@ -123,7 +119,7 @@ class WarehouseList extends Component {
 
                 <div className="list__actions">
                   <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
-                  <img className="list__icons" src={edit_pen} alt="edit icon" />
+                  <NavLink to={`/warehouses/${warehouse.id}/edit`}><img className="list__icons" src={edit_pen} alt="edit icon" /></NavLink>
                 </div>
               </div>
             ))}
@@ -139,7 +135,6 @@ class WarehouseList extends Component {
         ) : (
           <></>
         )}
-      </div>
       </div>
     );
   }

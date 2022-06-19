@@ -104,7 +104,7 @@
 
         @include tablet{
             margin-right: 0;
-            width: 50%
+            width: 57%
         }
     }
 
@@ -130,10 +130,38 @@
         
     }
 
-    &__status{
-        @include mobile__body-medium;
+    &__instock{
+        @include mobile__body-small;
         display: flex;
         align-items: center;
+        color: $instock-color;
+        background-color: rgba($color: $instock-color, $alpha: 0.07);
+        height: 1.5rem;
+        border-radius: 20px;
+        padding: 0 8px 0 8px;
+        text-transform: uppercase;
+        font-weight: 600;
+
+
+        @include tablet{
+            
+           
+        }
+
+    }
+
+    &__outofstock{
+        @include mobile__body-small;
+        display: flex;
+        align-items: center;
+        color: $outOfStock-color;
+        background-color: rgba($color: $outOfStock-color, $alpha: 0.07);
+        height: 1.5rem;
+        border-radius: 20px;
+        padding: 0 8px 0 8px;
+        text-transform: uppercase;
+        font-weight: 600;
+
 
         @include tablet{
             

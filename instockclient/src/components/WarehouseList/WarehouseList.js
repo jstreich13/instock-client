@@ -12,7 +12,7 @@ class WarehouseList extends Component {
   state = {
     warehouseData: [],
     modal: false,
-    deleteId: "",
+    deleteId: ""
   };
 
   componentDidMount() {
@@ -38,6 +38,12 @@ class WarehouseList extends Component {
       deleteId: deleteId,
     });
   };
+
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse
+    })
+  }
 
   handleDelete = async () => {
     await axios.delete(
@@ -79,7 +85,7 @@ class WarehouseList extends Component {
 
           <div className="list">
             {this.state.warehouseData.map((warehouse) => (
-              <div className="list__item">
+              <div className="list__item" key={warehouse.id}>
                 <div className="list__info">
                   <div className="list__supergrouping">
                     <div className="list__grouping">
@@ -121,19 +127,13 @@ class WarehouseList extends Component {
                 </div>
 
                 <div className="list__actions">
-                  <div>
-                    <DeleteItem
-                      key={props.id}
-                      warehouseName={props.warehouseName}
-                    />
-                    <img
-                      className="list__icons"
-                      src={garbage}
-                      alt="delete icon"
-                      onClick={() => this.handleModal(warehouse.id)}
-                    />
-                  </div>
-                  <img className="list__icons" src={edit_pen} alt="edit icon" />
+                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
+                  <NavLink to={{
+                    pathname: `/warehouses/${warehouse.id}/edit`,
+                    props: {editId: this.props.editId},
+                  }} 
+                  >
+                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/></NavLink>
                 </div>
               </div>
             ))}

@@ -9,7 +9,7 @@ import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import DisplayingItems from "./components/DisplayingItem/DisplayingItem";
+import DisplayingItems from "./components/DIsplayingItem/DisplayingItem";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 
 function App() {

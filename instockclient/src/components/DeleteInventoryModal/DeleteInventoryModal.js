@@ -4,7 +4,7 @@ import close from "../../Assets/Icons/close-24px.svg";
 
 function DeleteInventoryModal(props) {
 
-  const inventoryArr = props.inventoryData.find((item) => item.id === props.id);
+  const inventoryArr = props.inventoryData.find((item) => item.id === props.deleteId);
 
   return (
     <>

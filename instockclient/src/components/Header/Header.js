@@ -7,7 +7,7 @@ function Header() {
   return (
     <section className='header'>
         <div className='header__image'>
-            <img className='header__logo' src={logo} alt='InStock Logo'/>
+            <NavLink to='/'><img className='header__logo' src={logo} alt='InStock Logo'/></NavLink>
         </div>
         <ul className='header__list'>
             <NavLink to='/' exact className='header__link' activeClassName='header__item--selected'><li className='header__item'>Warehouses</li></NavLink>

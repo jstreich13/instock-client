@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./AddWarehouse.scss";
 import axios from "axios";
 import arrowIcon from '../../Assets/Icons/arrow_back-24px.svg'
+import { NavLink } from "react-router-dom";
 
 class AddWarehouse extends Component {
   state = {
@@ -40,29 +41,10 @@ class AddWarehouse extends Component {
   newWarehouse = (e) => {
     e.preventDefault()
 
-     //Regular Expressions to test phone number and email
-     const phoneRegEx = /^(\(?\+?[0-9]*\)?)?[0-9_\- ()]*$/;
-     const emailRegEx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-
-     //Test email against RegEx
-     const verifyEmail = (email) => {
-       return emailRegEx.test(email);
-     };
- 
-     //Test phone number against RegEx
-     const verifyPhone = (phone) => {
-       return phoneRegEx.test(phone);
-     };
-
   if(!this.state.name){
       this.setState({nameError: true});
   } 
-  if(!verifyEmail(this.state.contact.email)){
-      this.setState({emailError: true});
-  }
-  if(!verifyPhone(this.state.contact.phone)){
-      this.setState({phoneError: true});
-  }
+  
   if(!this.state.address){
       this.setState({addressError: true});
   }
@@ -104,16 +86,17 @@ class AddWarehouse extends Component {
 
   render() {
     return (
-      <form className="addWarehouse">
-        <h1 className="addWarehouse__title"><img onClick={() => window.history.back()} src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
-
+      <section className="addWarehouse__boxshadow">
+      <div className="addWarehouse">
+        <h1 className="addWarehouse__title"><img className="addWarehouse__arrow" onClick={() => window.history.back()} src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
+        <form className="addWarehouse__container" >
         <div className="addWarehouse__warehouse">
           <h2 className="addWarehouse__subtitle">Warehouse Details</h2>
 
           <div className="addWarehouse__form">
           <label className="addWarehouse__label">Warehouse Name</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="warehouse"
             name="warehouse"
             type="text"
@@ -123,7 +106,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Street Address</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="address"
             name="address"
             type="text"
@@ -133,7 +116,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">City</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="city"
             name="city"
             type="text"
@@ -143,7 +126,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Country</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="country"
             name="country"
             type="text"
@@ -158,7 +141,7 @@ class AddWarehouse extends Component {
           <div className="addWarehouse__form">
           <label className="addWarehouse__label">Contact Name</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="name"
             name="name"
             type="text"
@@ -168,7 +151,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Position</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="position"
             name="position"
             type="text"
@@ -178,7 +161,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Phone Number</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="phone"
             name="phone"
             type="text"
@@ -188,7 +171,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Email</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="email"
             name="email"
             type="text"
@@ -197,11 +180,13 @@ class AddWarehouse extends Component {
           />
         </div>
         </div>
+        </form>
         <div className="addWarehouse__submit">
-          <button className="addWarehouse__cancel" >Cancel</button>
+          <NavLink to='/' className="addWarehouse__link"><button className="addWarehouse__cancel">Cancel</button></NavLink>
           <button className="addWarehouse__add" onClick={this.newWarehouse}>+ Add Warehouse</button>
         </div>
-      </form>
+      </div>
+      </section>
     );
   }
 }

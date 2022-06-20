@@ -196,5 +196,5 @@ export default class InventoryList extends Component {
         )}
       </div>
     );
-  
+   }
 }

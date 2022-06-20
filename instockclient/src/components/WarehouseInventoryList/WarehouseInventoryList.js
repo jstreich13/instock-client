@@ -85,7 +85,7 @@ class WarehouseInventoryList extends Component {
                       <p className="list__quantity">{data.quantity}</p>
                     </div>
                   </div>
-                </div>
+                
                 <div className="list__image-container">
                   <img
                     className="list__image"
@@ -93,6 +93,7 @@ class WarehouseInventoryList extends Component {
                     alt="Delete Item"
                   />
                   <NavLink className="list__link" to={`/inventories/${data.id}`}><img className="list__image" src={editIcon} alt="Edit Icon" /></NavLink>
+                </div>
                 </div>
               </section>
             );

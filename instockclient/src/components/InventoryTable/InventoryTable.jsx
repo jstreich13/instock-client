@@ -12,6 +12,8 @@ import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal"
 export default class InventoryList extends Component {
   state = {
     inventoryData: [],
+    modal: false,
+    deleteId: ""
   };
 
   componentDidMount() {
@@ -24,12 +26,28 @@ export default class InventoryList extends Component {
       .then((res) => {
         this.setState({
           inventoryData: res.data,
+          
         });
       })
       .catch((err) => {
         console.log("error getting inventory data");
       });
   }
+
+  handleModal = (deleteId) => {
+    this.setState({
+      modal: !this.state.modal,
+      deleteId: deleteId,
+    });
+  };
+
+  handleDelete = async () => {
+    await axios.delete(
+      `http://localhost:8080/inventories/${this.state.deleteId}`
+    );
+    this.handleModal();
+    this.getInventoryList();
+  };
 
   render() {
     return (
@@ -70,7 +88,7 @@ export default class InventoryList extends Component {
 
           <div className="inventory-list">
             {this.state.inventoryData?.map((inventory) => {
-              console.log(inventory);
+              // console.log(inventory);
               return (
                 <div className="inventory-list__item">
                   <div className="inventory-list__info">
@@ -132,11 +150,11 @@ export default class InventoryList extends Component {
 
                   <div className="inventory-list__actions">
                     <div>
-                      {/* <DeleteItem key={this.state.props.id} itemName={this.state.props.itemName} /> */}
                       <img
                         className="inventory-list__icons"
                         src={trash}
                         alt="delete icon"
+                        onClick={()=> this.handleModal(inventory.id)}
                       />
                     </div>
                     <NavLink to={`/inventories/${inventory.id}/edit`}>
@@ -151,16 +169,17 @@ export default class InventoryList extends Component {
             })}
           </div>
         </div>
-        {/* {this.state.modal && this.state.modal === true ? (
+        {this.state.modal && this.state.modal === true ? (
           <DeleteInventoryModal
-            // warehouseData={this.state.warehouseData}
-            // handleModal={this.handleModal}
-            // deleteHandler={this.handleDelete}
-            // deleteId={this.state.deleteId}
+            inventoryData={this.state.inventoryData}
+            handleModal={this.handleModal}
+            deleteHandler={this.handleDelete}
+            deleteId={this.state.deleteId}
+            
           />
         ) : (
           <></>
-        )} */}
+        )}
       </div>
     );
     

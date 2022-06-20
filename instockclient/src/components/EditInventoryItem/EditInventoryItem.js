@@ -116,7 +116,7 @@ class EditInventoryItem extends Component {
                 status: this.state.status, 
                 category: this.state.category
             })
-                .then(res => console.log(res))
+                .then(() => alert("Saved"))
                 .catch(res => console.log(res));
         }
     }

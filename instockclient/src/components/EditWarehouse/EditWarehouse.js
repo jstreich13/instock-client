@@ -37,12 +37,7 @@ class EditWarehouse extends Component {
                     address: res.data.address,
                     city: res.data.city,
                     country: res.data.country, 
-                    contact: {
-                        // name: res.data.contact.name,
-                        // position: res.data.contact.position,
-                        // phone: res.data.contact.phone,
-                        // email: res.data.contact.email
-                    },
+                    contact: res.data.contact,
                     apiReturned: true
                 });
             })
@@ -107,14 +102,10 @@ class EditWarehouse extends Component {
                 address: this.state.address,
                 city: this.state.city,
                 country: this.state.country,
-                contact: {
-                    name: this.state.contact.name,
-                    position: this.state.contact.position,
-                    phone: this.state.contact.phone,
-                    email: this.state.contact.email
-                },
+                contact: this.state.contact,
+                id: this.state.id
             })
-                .then(res => console.log(res))
+                .then(() => alert("Saved"))
                 .catch(err => console.log(err));
         };
 

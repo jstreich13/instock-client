@@ -1,6 +1,5 @@
 import './EditInventoryItem.scss';
 import { Component } from 'react';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 
@@ -101,13 +100,22 @@ class EditInventoryItem extends Component {
         if(!this.state.name){
             this.setState({nameError: true});
         }
+        else{
+            this.setState({nameError: false});
+        }
         if(!this.state.description){
             this.setState({descError: true});
+        }
+        else{
+            this.setState({descError: false});
         }
         if(!this.state.quantity){
             this.setState({quantError: true});
         }
         else{
+            this.setState({quantError: false});
+        }
+        if(!this.state.nameError && !this.state.descError && !this.state.quantError){
             axios.put(`http://localhost:8080/inventories/${this.state.itemId}`, {
                 itemName: this.state.name,
                 warehouseName: this.state.warehouse,

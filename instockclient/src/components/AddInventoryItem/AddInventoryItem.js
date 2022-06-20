@@ -68,6 +68,7 @@ class AddInventoryItem extends Component {
       if (!status) this.setState({ statusError: true });
       if (!quantity) this.setState({ quantityError: true });
     }
+    window.location = "/inventory"
   };
 
   changeHandler = (e) => {

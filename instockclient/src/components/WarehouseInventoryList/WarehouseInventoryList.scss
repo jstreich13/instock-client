@@ -61,7 +61,13 @@
         @include tablet {
             width: 100%;
             justify-content: space-between;
+
+            &:hover{
+                background-color: rgba($color: $instock-Indigo, $alpha: 0.07);
+            }
         }
+
+        
     }
 
     &__group{

@@ -52,23 +52,18 @@
   }
 }
 
-.inventory {
-  width: 90%;
-  box-shadow: 0 0 4px grey;
-  margin: 0% 5% 5% 5%;
-  background: $white;
+.inv-header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $light-Grey;
+  background-color: $white;
 
-  &__header {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid $light-Grey;
-
-    @include tablet {
-      flex-direction: row;
-      padding-inline: 1rem;
-    }
+  @include tablet {
+    flex-direction: row;
+    padding-inline: 1rem;
   }
-  &____header-title {
+
+  &__title {
     padding-inline: 1rem;
     @include mobile__page-header;
     width: 85%;
@@ -78,16 +73,16 @@
     }
   }
 
-  &____header-search {
+  &__search {
     width: 80%;
     height: 2rem;
-    padding-inline: 1rem;
-    background-repeat: no-repeat;
     margin: auto;
     border-radius: 20px;
-    background-position: 95%;
+    padding-inline: 1rem;
     border: 1px solid $cloud;
     background-image: url("../../Assets/Icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 95%;
 
     @include tablet {
       width: 30%;
@@ -95,23 +90,33 @@
     }
   }
 
-  &__header-add-btn {
+  &__add-btn {
     @include mobile__labels-links-buttons;
     width: 90%;
     height: 2rem;
     padding-inline: 1rem;
-    color: white;
     margin: auto;
+    color: white;
     margin-block: 1rem;
     background-color: $instock-Indigo;
-    border-radius: 20px;
     border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 2.25;
 
     @include tablet {
       width: 30%;
       margin-left: 2rem;
     }
   }
+}
+
+.inventory {
+  width: 90%;
+  box-shadow: 0 0 4px grey;
+  margin: 0% 5% 5% 5%;
+  background: $white;
 
   &__list-labels {
     display: none;
@@ -130,7 +135,6 @@
     }
   }
 }
-
 .inventorylabels__item {
   text-align: center;
 }

@@ -12,7 +12,7 @@ class WarehouseList extends Component {
   state = {
     warehouseData: [],
     modal: false,
-    deleteId: ""
+    deleteId: "",
   };
 
   componentDidMount() {
@@ -32,18 +32,18 @@ class WarehouseList extends Component {
       });
   }
 
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse,
+    });
+  };
+
   handleModal = (deleteId) => {
     this.setState({
       modal: !this.state.modal,
       deleteId: deleteId,
     });
   };
-
-  handleEdit = (warehouse) => {
-    this.setState({
-      editId: warehouse
-    })
-  }
 
   handleDelete = async () => {
     await axios.delete(
@@ -60,7 +60,9 @@ class WarehouseList extends Component {
           <div className="wareheader">
             <h1 className="wareheader__title">Warehouses</h1>
             <input className="wareheader__search" placeholder="Search..." />
-            <NavLink to={"/warehouses/add"}><button className="wareheader__add-btn">+ Add New Warehouse</button></NavLink>
+            <NavLink to={"/warehouses/add"} className="wareheader__add-btn">
+              + Add New Warehouse
+            </NavLink>
           </div>
 
           <ul className="labels">
@@ -127,9 +129,19 @@ class WarehouseList extends Component {
                 </div>
 
                 <div className="list__actions">
-                  <img className="list__icons" src={garbage} alt="delete icon" onClick={()=> this.handleModal(warehouse.id)}/>
+                  <img
+                    className="list__icons"
+                    src={garbage}
+                    alt="delete icon"
+                    onClick={() => this.handleModal(warehouse.id)}
+                  />
                   <NavLink to={`/warehouses/${warehouse.id}/edit`}>
-                      <img className="list__icons" src={edit_pen} alt="edit icon" onClick={()=> this.handleEdit}/>
+                    <img
+                      className="list__icons"
+                      src={edit_pen}
+                      alt="edit icon"
+                      onClick={() => this.handleEdit}
+                    />
                   </NavLink>
                 </div>
               </div>

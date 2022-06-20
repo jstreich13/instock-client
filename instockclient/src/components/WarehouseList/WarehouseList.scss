@@ -120,6 +120,9 @@
 
         @include tablet {
             flex-direction: row;
+            &:hover {
+                background-color: rgba(46, 102, 230, 0.07);
+              }
         }
     }
 
@@ -143,6 +146,7 @@
 
         @include tablet {
             flex-direction: row;
+            
         }
     }
 
@@ -154,6 +158,7 @@
 
         @include tablet {
             justify-content: center;
+            
         }
     }
 
@@ -214,8 +219,9 @@
         }
 
         @include tablet {
-            height: 2rem;
-            width: 2rem;
+            height: 1.5rem;
+            width: 1.5rem;
+            margin-left: .5rem;
         }
     }
 }

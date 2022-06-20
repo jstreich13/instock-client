@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./AddWarehouse.scss";
 import axios from "axios";
 import arrowIcon from '../../Assets/Icons/arrow_back-24px.svg'
+import { NavLink } from "react-router-dom";
 
 class AddWarehouse extends Component {
   state = {
@@ -104,9 +105,10 @@ class AddWarehouse extends Component {
 
   render() {
     return (
-      <form className="addWarehouse">
-        <h1 className="addWarehouse__title"><img onClick={() => window.history.back()} src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
-
+      <section className="addWarehouse__boxshadow">
+      <div className="addWarehouse">
+        <h1 className="addWarehouse__title"><img className="addWarehouse__arrow" onClick={() => window.history.back()} src={arrowIcon} alt="Arrow Back"/> Add New Warehouse</h1>
+        <form className="addWarehouse__container" >
         <div className="addWarehouse__warehouse">
           <h2 className="addWarehouse__subtitle">Warehouse Details</h2>
 
@@ -197,11 +199,13 @@ class AddWarehouse extends Component {
           />
         </div>
         </div>
+        </form>
         <div className="addWarehouse__submit">
-          <button className="addWarehouse__cancel" >Cancel</button>
+          <NavLink to='/' className="addWarehouse__link"><button className="addWarehouse__cancel">Cancel</button></NavLink>
           <button className="addWarehouse__add" onClick={this.newWarehouse}>+ Add Warehouse</button>
         </div>
-      </form>
+      </div>
+      </section>
     );
   }
 }

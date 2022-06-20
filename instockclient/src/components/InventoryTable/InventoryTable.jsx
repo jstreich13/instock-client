@@ -7,13 +7,13 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
-import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal"
+import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 
 export default class InventoryList extends Component {
   state = {
     inventoryData: [],
     modal: false,
-    deleteId: ""
+    deleteId: "",
   };
 
   componentDidMount() {
@@ -22,17 +22,22 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventories")
+      .get("http://localhost:8080/inventories/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
-          
         });
       })
       .catch((err) => {
         console.log("error getting inventory data");
       });
   }
+
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse,
+    });
+  };
 
   handleModal = (deleteId) => {
     this.setState({
@@ -42,6 +47,7 @@ export default class InventoryList extends Component {
   };
 
   handleDelete = async () => {
+    console.log(this.state.inventoryData);
     await axios.delete(
       `http://localhost:8080/inventories/${this.state.deleteId}`
     );
@@ -59,7 +65,11 @@ export default class InventoryList extends Component {
               className="inventory__header-search"
               placeholder="Search..."
             />
-            <NavLink to={"/inventory/add"}><button className="inventory__header-addbtn">+ Add New Item</button></NavLink>
+            <NavLink to={"/inventory/add"}>
+              <button className="inventory__header-addbtn">
+                + Add New Item
+              </button>
+            </NavLink>
           </div>
 
           <ul className="inventory__list-labels">
@@ -154,15 +164,17 @@ export default class InventoryList extends Component {
                         className="inventory-list__icons"
                         src={trash}
                         alt="delete icon"
-                        onClick={()=> this.handleModal(inventory.id)}
+                        onClick={() => this.handleModal(inventory.id)}
                       />
                     </div>
                     <NavLink to={`/inventories/${inventory.id}/edit`}>
-                    <img
-                      className="inventory-list__icons edit-pen"
-                      src={edit_icon}
-                      alt="edit icon"
-                    /></NavLink>
+                      <img
+                        className="inventory-list__icons edit-pen"
+                        src={edit_icon}
+                        alt="edit icon"
+                        onClick={() => this.handleEdit}
+                      />
+                    </NavLink>
                   </div>
                 </div>
               );
@@ -175,13 +187,11 @@ export default class InventoryList extends Component {
             handleModal={this.handleModal}
             deleteHandler={this.handleDelete}
             deleteId={this.state.deleteId}
-            
           />
         ) : (
           <></>
         )}
       </div>
     );
-    
   }
 }

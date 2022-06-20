@@ -41,29 +41,10 @@ class AddWarehouse extends Component {
   newWarehouse = (e) => {
     e.preventDefault()
 
-     //Regular Expressions to test phone number and email
-     const phoneRegEx = /^(\(?\+?[0-9]*\)?)?[0-9_\- ()]*$/;
-     const emailRegEx = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-
-     //Test email against RegEx
-     const verifyEmail = (email) => {
-       return emailRegEx.test(email);
-     };
- 
-     //Test phone number against RegEx
-     const verifyPhone = (phone) => {
-       return phoneRegEx.test(phone);
-     };
-
   if(!this.state.name){
       this.setState({nameError: true});
   } 
-  if(!verifyEmail(this.state.contact.email)){
-      this.setState({emailError: true});
-  }
-  if(!verifyPhone(this.state.contact.phone)){
-      this.setState({phoneError: true});
-  }
+  
   if(!this.state.address){
       this.setState({addressError: true});
   }

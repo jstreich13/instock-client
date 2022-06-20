@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
-import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal"
+import DeleteItem from "../DeleteItem/DeleteItem";
 
 export default class InventoryList extends Component {
   state = {
@@ -20,7 +20,7 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventories")
+      .get("http://localhost:8080/inventory/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -35,13 +35,10 @@ export default class InventoryList extends Component {
     return (
       <div className="header-wrapper">
         <div className="inventory">
-          <div className="inventory__header">
-            <h1 className="inventory__header-title">Inventory</h1>
-            <input
-              className="inventory__header-search"
-              placeholder="Search..."
-            />
-            <NavLink to={"/inventory/add"}><button className="inventory__header-addbtn">+ Add New Item</button></NavLink>
+          <div className="inv-header">
+            <h1 className="inv-header__title">Inventory</h1>
+            <input className="inv-header__search" placeholder="Search..." />
+            <button className="inv-header__add-btn">+ Add New Item</button>
           </div>
 
           <ul className="inventory__list-labels">
@@ -139,30 +136,18 @@ export default class InventoryList extends Component {
                         alt="delete icon"
                       />
                     </div>
-                    <NavLink to={`/inventories/${inventory.id}/edit`}>
                     <img
                       className="inventory-list__icons edit-pen"
                       src={edit_icon}
                       alt="edit icon"
-                    /></NavLink>
+                    />
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
-        {/* {this.state.modal && this.state.modal === true ? (
-          <DeleteInventoryModal
-            // warehouseData={this.state.warehouseData}
-            // handleModal={this.handleModal}
-            // deleteHandler={this.handleDelete}
-            // deleteId={this.state.deleteId}
-          />
-        ) : (
-          <></>
-        )} */}
       </div>
     );
-    
   }
 }

@@ -7,7 +7,9 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
+
 import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
+
 
 export default class InventoryList extends Component {
   state = {
@@ -59,6 +61,7 @@ export default class InventoryList extends Component {
     return (
       <div className="header-wrapper">
         <div className="inventory">
+
           <div className="inventory__header">
             <h1 className="inventory__header-title">Inventory</h1>
             <input
@@ -193,5 +196,5 @@ export default class InventoryList extends Component {
         )}
       </div>
     );
-  }
+  
 }

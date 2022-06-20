@@ -1,6 +1,5 @@
 import './EditWarehouse.scss';
 import { Component } from 'react';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 
@@ -37,12 +36,7 @@ class EditWarehouse extends Component {
                     address: res.data.address,
                     city: res.data.city,
                     country: res.data.country, 
-                    contact: {
-                        // name: res.data.contact.name,
-                        // position: res.data.contact.position,
-                        // phone: res.data.contact.phone,
-                        // email: res.data.contact.email
-                    },
+                    contact: res.data.contact,
                     apiReturned: true
                 });
             })
@@ -80,39 +74,59 @@ class EditWarehouse extends Component {
         if(!this.state.name){
             this.setState({nameError: true});
         }
+        else{
+            this.setState({nameError: false});
+        }
         if(!verifyEmail(this.state.contact.email)){
             this.setState({emailError: true});
+        }
+        else{
+            this.setState({emailError: false});
         }
         if(!verifyPhone(this.state.contact.phone)){
             this.setState({phoneError: true});
         }
+        else{
+            this.setState({phoneError: false});
+        }
         if(!this.state.address){
             this.setState({addressError: true});
+        }
+        else{
+            this.setState({addressError: false});
         }
         if(!this.state.city){
             this.setState({cityError: true});
         }
+        else{
+            this.setState({cityError: false});
+        }
         if(!this.state.country){
             this.setState({countryError: true});
         }
+        else{
+            this.setState({countryError: false});
+        }
         if(!this.state.contact.name){
             this.setState({contactNameError: true});
+        }
+        else{
+            this.setState({contactNameError: false});
         }
         if(!this.state.contact.position){
             this.setState({contactPositionError: true});
         }
         else{
+            this.setState({contactPositionError: false});
+        }
+        if(!this.state.addressError && !this.state.cityError && !this.state.countryError && !this.state.contactNameError && !this.state.contactPositionError && !this.state.phoneError && !this.state.emailError){
             axios.put(`http://localhost:8080/warehouses/${this.state.id}`, {
                 name: this.state.name,
                 address: this.state.address,
                 city: this.state.city,
                 country: this.state.country,
-                contact: {
-                    name: this.state.contact.name,
-                    position: this.state.contact.position,
-                    phone: this.state.contact.phone,
-                    email: this.state.contact.email
-                },
+                contact: this.state.contact,
+                id: this.state.id
             })
                 .then(res => console.log(res))
                 .catch(err => console.log(err));

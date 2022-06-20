@@ -4,18 +4,18 @@ import InventoryTable from "./components/InventoryTable/InventoryTable";
 import Header from "./components/Header/Header";
 import WarehouseList from "./components/WarehouseList/WarehouseList";
 import WarehouseInventoryList from "./components/WarehouseInventoryList/WarehouseInventoryList";
-import Footer from './components/Footer/footer';
-import AddWarehouse from './components/AddWarehouse/AddWarehouse';
-import WarehouseDetails from './components/WarehouseDetails/WarehouseDetails';
+import Footer from "./components/Footer/footer";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse";
 import AddInventoryItem from "./components/AddInventoryItem/AddInventoryItem";
-import DisplayingItems from "./components/DIsplayingItem/DisplayingItem";
+import DisplayingItems from "./components/DisplayingItem/DisplayingItem";
 import EditInventoryItem from "./components/EditInventoryItem/EditInventoryItem";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Switch>
         <Route
           path="/"
@@ -62,7 +62,7 @@ function App() {
         />
       </Switch>
 
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -89,6 +89,25 @@
         }
     }
 
+    &__input-error{
+        width: 100%;
+        margin-bottom: 1rem;
+        @include mobile__labels-links-buttons;
+        height: 36px;
+        padding: 0 16px 0 16px;
+        margin-top: 4px;
+        border-radius: 20px;
+        border: 1px solid $outOfStock-color;
+
+        @include tablet {
+            @include tablet__labels-links-buttons;
+        }
+
+        &:focus{
+            outline: 1px solid $instock-Indigo;
+        }
+    }
+
     &__submit{
         display: flex;
         justify-content: space-evenly;

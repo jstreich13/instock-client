@@ -115,7 +115,7 @@ class AddWarehouse extends Component {
           <div className="addWarehouse__form">
           <label className="addWarehouse__label">Warehouse Name</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="warehouse"
             name="warehouse"
             type="text"
@@ -125,7 +125,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Street Address</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="address"
             name="address"
             type="text"
@@ -135,7 +135,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">City</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="city"
             name="city"
             type="text"
@@ -145,7 +145,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Country</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="country"
             name="country"
             type="text"
@@ -160,7 +160,7 @@ class AddWarehouse extends Component {
           <div className="addWarehouse__form">
           <label className="addWarehouse__label">Contact Name</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="name"
             name="name"
             type="text"
@@ -170,7 +170,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Position</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="position"
             name="position"
             type="text"
@@ -180,7 +180,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Phone Number</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="phone"
             name="phone"
             type="text"
@@ -190,7 +190,7 @@ class AddWarehouse extends Component {
 
           <label className="addWarehouse__label">Email</label>
           <input
-            className="addWarehouse__input"
+            className={`addWarehouse__input${this.state.nameError ? ' addWarehouse__input-error': ''}`}
             id="email"
             name="email"
             type="text"

@@ -7,11 +7,15 @@ import { NavLink } from "react-router-dom";
 import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
-import DeleteItem from "../DeleteItem/DeleteItem";
+
+import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
+
 
 export default class InventoryList extends Component {
   state = {
     inventoryData: [],
+    modal: false,
+    deleteId: "",
   };
 
   componentDidMount() {
@@ -20,7 +24,7 @@ export default class InventoryList extends Component {
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventory/")
+      .get("http://localhost:8080/inventories/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -31,14 +35,44 @@ export default class InventoryList extends Component {
       });
   }
 
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse,
+    });
+  };
+
+  handleModal = (deleteId) => {
+    this.setState({
+      modal: !this.state.modal,
+      deleteId: deleteId,
+    });
+  };
+
+  handleDelete = async () => {
+    console.log(this.state.inventoryData);
+    await axios.delete(
+      `http://localhost:8080/inventories/${this.state.deleteId}`
+    );
+    this.handleModal();
+    this.getInventoryList();
+  };
+
   render() {
     return (
       <div className="header-wrapper">
         <div className="inventory">
-          <div className="inv-header">
-            <h1 className="inv-header__title">Inventory</h1>
-            <input className="inv-header__search" placeholder="Search..." />
-            <button className="inv-header__add-btn">+ Add New Item</button>
+
+          <div className="inventory__header">
+            <h1 className="inventory__header-title">Inventory</h1>
+            <input
+              className="inventory__header-search"
+              placeholder="Search..."
+            />
+            <NavLink to={"/inventory/add"}>
+              <button className="inventory__header-addbtn">
+                + Add New Item
+              </button>
+            </NavLink>
           </div>
 
           <ul className="inventory__list-labels">
@@ -67,7 +101,7 @@ export default class InventoryList extends Component {
 
           <div className="inventory-list">
             {this.state.inventoryData?.map((inventory) => {
-              console.log(inventory);
+              // console.log(inventory);
               return (
                 <div className="inventory-list__item">
                   <div className="inventory-list__info">
@@ -129,25 +163,38 @@ export default class InventoryList extends Component {
 
                   <div className="inventory-list__actions">
                     <div>
-                      {/* <DeleteItem key={this.state.props.id} itemName={this.state.props.itemName} /> */}
                       <img
                         className="inventory-list__icons"
                         src={trash}
                         alt="delete icon"
+                        onClick={() => this.handleModal(inventory.id)}
                       />
                     </div>
-                    <img
-                      className="inventory-list__icons edit-pen"
-                      src={edit_icon}
-                      alt="edit icon"
-                    />
+                    <NavLink to={`/inventories/${inventory.id}/edit`}>
+                      <img
+                        className="inventory-list__icons edit-pen"
+                        src={edit_icon}
+                        alt="edit icon"
+                        onClick={() => this.handleEdit}
+                      />
+                    </NavLink>
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
+        {this.state.modal && this.state.modal === true ? (
+          <DeleteInventoryModal
+            inventoryData={this.state.inventoryData}
+            handleModal={this.handleModal}
+            deleteHandler={this.handleDelete}
+            deleteId={this.state.deleteId}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     );
-  }
+  
 }

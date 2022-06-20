@@ -26,7 +26,7 @@
   }
 
   &__container {
-    padding: 0 1rem;
+    padding: 0;
     @include tablet {
       padding: 0;
       margin: -12px;
@@ -66,10 +66,9 @@
     flex-wrap: wrap;
     background-color: white;
     text-align: left;
-    padding: 4rem;
     border-bottom: 1px solid #bdc5d5;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     padding-top: 0;
     box-shadow: 100% #bdc5d5;
 
@@ -80,7 +79,7 @@
 
     @include tablet {
       align-items: center;
-      padding: 2rem 2rem 2rem 2rem;
+      padding-block: 2rem;
       display: flex;
       flex-wrap: wrap;
       background-color: white;
@@ -153,7 +152,6 @@
     place-content: space-between;
     border-bottom: #bdc5d5 2px solid;
     font-family: "Titillium Web";
-    width: 128%;
     margin-left: -4em;
 
     @include tablet {
@@ -210,7 +208,7 @@
       justify-content: space-between;
       display: flex;
       flex-direction: row;
-      gap: 5rem;
+      gap: 3rem;
 
       div {
         flex: 1;

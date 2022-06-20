@@ -1,0 +1,119 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-details {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border-radius: 4px;
+    box-shadow: 0 0 4px grey;
+    background-color: $white;
+
+    &__boxshadow {
+        display: flex;
+        justify-content: center;
+        background: $white;
+        background: linear-gradient(0deg, $light-Grey 95%, $graphite 95%);
+        @include tablet {
+            background: linear-gradient(0deg, $light-Grey 89%, $graphite 89%);
+        }
+    }
+
+    &__info-holder{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    &__backIcon{
+        margin-right: 1rem;
+    }
+
+    &__header{
+        @include mobile__page-header;
+        margin-right: auto;
+        @include tablet {
+            @include tablet__page-header;
+        }
+    }
+
+    &__title{
+        @include mobile__body-small;
+
+        @include tablet {
+            @include tablet__body-small;
+        }
+    }
+
+    &__text {
+        @include mobile__body-small;
+
+        @include tablet{
+            @include tablet__body-medium;
+        }
+    }
+
+    &__edit-icon{
+        fill: $white;
+    }
+    &__edit{
+        @include mobile__body-small;
+        border: $instock-Indigo;
+        margin-left: auto;
+        border-radius: 20px;
+        height: 36px;
+        color: $white;
+        background-color: $instock-Indigo;
+        align-self: center;
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+
+        @include tablet{
+            @include tablet__body-small;
+            height: 38px;
+        }
+    }
+
+    &__header-holder{
+        display: flex;
+        flex-direction: row;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-bottom: 1px solid $slate;
+        align-items: center;
+    }
+
+    &__address {
+        width: 100%;
+        margin-left: 1.6rem;
+
+        @include tablet{
+            width: 40%;
+            margin: 0;
+        }
+    }
+
+    &__contact-name{
+        width: auto;
+
+        @include tablet{
+            width: 19%;
+            padding-left: 1rem;
+            border-left: 1px solid $slate;
+        }
+    }
+
+    &__contact-info{
+        width: auto;
+
+        @include tablet {
+            width: 19%;
+        }
+    }
+}

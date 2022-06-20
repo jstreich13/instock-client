@@ -2,8 +2,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-
-.edit-inv-item {
+.edit-warehouse {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -11,22 +10,24 @@
     box-shadow: 0 0 4px grey;
     background-color: $white;
 
-    &__backIcon {
-       margin-right: 1rem;
+    &__backIcon{
+        margin-right: 1rem;
     }
+
     &__header-holder{
         display: flex;
         flex-direction: row;
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    &__header {
+
+    &__header{
         @include mobile__page-header;
         @include tablet{
             @include tablet__page-header;
         }
     }
-    
+
     &__form-holder {
         border-top: 1px solid $slate;
         padding: 1rem;
@@ -39,7 +40,7 @@
         }
     }
 
-    &__boxshadow{
+    &__boxshadow {
         display: flex;
         justify-content: center;
         background: $white;
@@ -49,31 +50,26 @@
     &__error{
         outline: none;
         border: 1px solid $outOfStock-color !important;
-
-        &:after{
-            content: url(../../Assets/Icons/error-24px.svg) "this field is required";
-            display: inline-block;
-            width: 10px;
-        }
     }
 }
 
-.edit-inv-item-form {
-    @include tablet{
+.edit-warehouse-form {
+    @include tablet {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        padding-bottom: 1rem;
+        padding-bottom: 1rem;;
     }
-    &__title{
+
+    &__title {
         @include mobile__sub-header;
-        @include tablet{
+        @include tablet {
             @include tablet__sub-header;
         }
     }
 
-    &__label{
+    &__label {
         @include mobile__labels-links-buttons;
         margin: 0;
         margin-right: 8px;
@@ -81,23 +77,9 @@
         @include tablet{
             @include tablet__labels-links-buttons;
         }
-
-        &--radio{
-            @include mobile__labels-links-buttons;
-            color: $cloud;
-            margin-right: 8px;
-
-            &:active{
-                color: $instock-Black;
-            }
-
-            @include tablet{
-                @include tablet__labels-links-buttons;
-            }
-        }
     }
 
-    &__small-text {
+    &__small-text{
         @include mobile__body-small;
         border-radius: 20px;
         border: 1px solid $cloud;
@@ -110,70 +92,6 @@
         &:focus{
             outline: none;
             border: 1px solid $instock-Indigo;
-        }
-
-        @include tablet{
-            height: 2.375rem;
-            @include tablet__body-small;
-        }
-    }
-
-    &__number {
-        @include mobile__body-small;
-        border-radius: 20px;
-        border: 1px solid $cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        padding-right: 16px;
-        width: auto;
-        height: 2.25rem;
-
-        &:focus{
-            outline: none;
-            border: 1px solid $instock-Indigo;
-        }
-
-        @include tablet{
-            height: 2.375rem;
-            @include tablet__body-small;
-        }
-    }
-
-    &__big-text{
-        @include mobile__body-small;
-        border-radius: 20px;
-        border: 1px solid $cloud;
-        margin-bottom: 1rem;
-        padding-left: 16px;
-        padding-right: 16px;
-        width: stretch;
-        height: 7.5rem;
-        resize: none;
-
-        &:focus{
-            outline: none;
-            border: 1px solid $instock-Indigo;
-        }
-
-        @include tablet{
-            @include tablet__body-small;
-        }
-    }
-
-    &__dropdown {
-        @include mobile__body-small;
-        border-radius: 20px;
-        width: stretch;
-        border: 1px solid $cloud;
-        margin-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        height: 2.25rem;
-
-        &:focus{
-            outline: none;
-            border: 1px solid $instock-Indigo;
-            color: $instock-Indigo;
         }
 
         @include tablet {
@@ -182,17 +100,7 @@
         }
     }
 
-    &__radio{
-        @include mobile__body-small;
-        margin-bottom: 1rem;
-        margin-right: 4px;
-        
-        @include tablet{
-            @include tablet__body-small;
-        }
-    }
-
-    &__availability {
+    &__contact{
         border-top: 1px solid $cloud;
 
         @include tablet{
@@ -222,9 +130,9 @@
         }
     }
 
-    &__cancel {
+    &__cancel{
         border: 1px solid $cloud;
-        background-color: $white;
+        background-color: white;
         height: 2.25rem;
         border-radius: 20px;
         width: 45%;
@@ -257,7 +165,4 @@
         }
     }
 
-    &__black{
-        color: $instock-Black !important;
-    }
 }

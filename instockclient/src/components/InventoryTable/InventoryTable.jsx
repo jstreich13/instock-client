@@ -8,20 +8,23 @@ import chevron from "../../Assets/Icons/chevron_right-24px.svg";
 import sort from "../../Assets/Icons/sort-24px.svg";
 import "./InventoryTable.scss";
 
+import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
+
+
 export default class InventoryList extends Component {
   state = {
     inventoryData: [],
+    modal: false,
+    deleteId: "",
   };
 
   componentDidMount() {
     this.getInventoryList();
-
-    //back end task for getting inventory list == for Jeremy
   }
 
   getInventoryList() {
     axios
-      .get("http://localhost:8080/inventory/")
+      .get("http://localhost:8080/inventories/")
       .then((res) => {
         this.setState({
           inventoryData: res.data,
@@ -32,18 +35,44 @@ export default class InventoryList extends Component {
       });
   }
 
+  handleEdit = (warehouse) => {
+    this.setState({
+      editId: warehouse,
+    });
+  };
+
+  handleModal = (deleteId) => {
+    this.setState({
+      modal: !this.state.modal,
+      deleteId: deleteId,
+    });
+  };
+
+  handleDelete = async () => {
+    console.log(this.state.inventoryData);
+    await axios.delete(
+      `http://localhost:8080/inventories/${this.state.deleteId}`
+    );
+    this.handleModal();
+    this.getInventoryList();
+  };
+
   render() {
-    //if conditional<>
     return (
       <div className="header-wrapper">
         <div className="inventory">
+
           <div className="inventory__header">
-            <h1 className="inventory__header-title">INVENTORY</h1>
+            <h1 className="inventory__header-title">Inventory</h1>
             <input
               className="inventory__header-search"
               placeholder="Search..."
             />
-            <button className="inventory__header-addbtn">+ Add New Item</button>
+            <NavLink to={"/inventory/add"}>
+              <button className="inventory__header-addbtn">
+                + Add New Item
+              </button>
+            </NavLink>
           </div>
 
           <ul className="inventory__list-labels">
@@ -56,11 +85,15 @@ export default class InventoryList extends Component {
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">
-              CONTACT NAME{" "}
+              STATUS{" "}
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">
-              CONTACT INFORMATION{" "}
+              QTY{" "}
+              <img className="labels__icon" src={sort} alt="sort icon"></img>
+            </li>
+            <li className="inventorylabels__item">
+              WAREHOUSE{" "}
               <img className="labels__icon" src={sort} alt="sort icon"></img>
             </li>
             <li className="inventorylabels__item">ACTIONS </li>
@@ -68,7 +101,7 @@ export default class InventoryList extends Component {
 
           <div className="inventory-list">
             {this.state.inventoryData?.map((inventory) => {
-              console.log(inventory);
+              // console.log(inventory);
               return (
                 <div className="inventory-list__item">
                   <div className="inventory-list__info">
@@ -90,21 +123,29 @@ export default class InventoryList extends Component {
                         </NavLink>
                       </div>
                       <div className="inventory-list__groups">
-                        <p className="inventory-list__subtitles">CATEGORY</p>
-                        <p className="inventory-list__body">
-                          {inventory.category}
-                        </p>
+                        <div className="category-spacing">
+                          <p className="inventory-list__subtitles">CATEGORY</p>
+                          <p className="inventory-list__body">
+                            {inventory.category}
+                          </p>
+                        </div>
                       </div>
                     </div>
 
                     <div className="inventory-list__supergroups">
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">STATUS</p>
-                        <p className="inventory-list__body">
-                          {inventory.status}
-                        </p>
+                        {inventory.status === "In Stock" ? (
+                          <p className="inventory-list__inStock">
+                            {" "}
+                            {inventory.status}{" "}
+                          </p>
+                        ) : (
+                          <p className="inventory-list__notInStock">
+                            {inventory.status}
+                          </p>
+                        )}
                       </div>
-
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">QTY</p>
                         <p className="inventory-list__body">
@@ -114,30 +155,46 @@ export default class InventoryList extends Component {
                       <div className="inventory-list__groups">
                         <p className="inventory-list__subtitles">WAREHOUSE</p>
                         <p className="inventory-list__body">
-                          {inventory.warehouse}
+                          {inventory.warehouseName}
                         </p>
                       </div>
                     </div>
                   </div>
 
                   <div className="inventory-list__actions">
-                    <img
-                      className="inventory-list__icons"
-                      src={trash}
-                      alt="delete icon"
-                    />
-                    <img
-                      className="inventory-list__icons"
-                      src={edit_icon}
-                      alt="edit icon"
-                    />
+                    <div>
+                      <img
+                        className="inventory-list__icons"
+                        src={trash}
+                        alt="delete icon"
+                        onClick={() => this.handleModal(inventory.id)}
+                      />
+                    </div>
+                    <NavLink to={`/inventories/${inventory.id}/edit`}>
+                      <img
+                        className="inventory-list__icons edit-pen"
+                        src={edit_icon}
+                        alt="edit icon"
+                        onClick={() => this.handleEdit}
+                      />
+                    </NavLink>
                   </div>
                 </div>
               );
             })}
           </div>
         </div>
+        {this.state.modal && this.state.modal === true ? (
+          <DeleteInventoryModal
+            inventoryData={this.state.inventoryData}
+            handleModal={this.handleModal}
+            deleteHandler={this.handleDelete}
+            deleteId={this.state.deleteId}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     );
-  }
+   }
 }

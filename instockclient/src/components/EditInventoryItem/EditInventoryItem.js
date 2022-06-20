@@ -1,20 +1,19 @@
 import './EditInventoryItem.scss';
 import { Component } from 'react';
-import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import backArrow from '../../Assets/Icons/arrow_back-24px.svg';
 
 class EditInventoryItem extends Component {
     //state holds item info, values for drop downs, and error status of different input fields
     state = {
-        itemId: "8f16bd30-bab5-40af-aca2-b63d5fdd1acc",
+
+        itemId: this.props.match.params.id,
         name: null,
         description: null,
         category: null, 
         status: null,
         quantity: null,
         warehouse: null,
-        prevLink: null,
         warehouseList: null,
         categoryValues: [
             {
@@ -101,13 +100,22 @@ class EditInventoryItem extends Component {
         if(!this.state.name){
             this.setState({nameError: true});
         }
+        else{
+            this.setState({nameError: false});
+        }
         if(!this.state.description){
             this.setState({descError: true});
+        }
+        else{
+            this.setState({descError: false});
         }
         if(!this.state.quantity){
             this.setState({quantError: true});
         }
         else{
+            this.setState({quantError: false});
+        }
+        if(!this.state.nameError && !this.state.descError && !this.state.quantError){
             axios.put(`http://localhost:8080/inventories/${this.state.itemId}`, {
                 itemName: this.state.name,
                 warehouseName: this.state.warehouse,
@@ -133,7 +141,7 @@ class EditInventoryItem extends Component {
             <div className='edit-inv-item__boxshadow'>
             <div className='edit-inv-item'>
                 <div className='edit-inv-item__header-holder'>
-                <img onClick={() => useHistory(-1)} className='edit-inv-item__backIcon' alt="Back Button" src={backArrow}/>
+                <img onClick={() => window.history.back()} className='edit-inv-item__backIcon' alt="Back Button" src={backArrow}/>
                 <h1 className='edit-inv-item__header'>Edit Inventory Item</h1>
                 </div>
                 <div className='edit-inv-item__form-holder'>
@@ -167,7 +175,7 @@ class EditInventoryItem extends Component {
                     </form>
                 </div>
                 <div className='edit-inv-item-form__buttons'>
-                        <button className='edit-inv-item-form__cancel'>Cancel</button>
+                        <button onClick={() => window.history.back()} className='edit-inv-item-form__cancel'>Cancel</button>
                         <button type='submit' className='edit-inv-item-form__save' form='editInvForm'>Save</button>
                 </div>
             </div>
